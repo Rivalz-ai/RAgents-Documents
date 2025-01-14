@@ -2,6 +2,25 @@
 
 ## Introduction
 RAgents Swarm is a distributed AI agent system designed to connect and coordinate various specialized agents, enabling them to share resources and execute complex tasks efficiently.
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Our System's Objectives](#our-systems-objectives)
+    1. [Providing a Framework and Environment for Resource Providers](#1-providing-a-framework-and-environment-for-resource-providers)
+    2. [Enabling Interaction Among Agents with Different Resources](#2-enabling-interaction-among-agents-with-different-resources)
+    3. [Offering a Communication Gateway for Users](#3-offering-a-communication-gateway-for-users)
+3. [The Power of Specialization](#the-power-of-specialization)
+4. [Applications of RAgents Swarm](#applications-of-ragents-swarm)
+    1. [Application of Social Agent](#application-of-social-agent)
+    2. [Application of Compute Agent](#application-of-compute-agent)
+    3. [Application of Data Agent](#application-of-data-agent)
+    4. [Application of Execution Agent](#application-of-execution-agent)
+    5. [General others Resource Agents](#general-others-resource-agents)
+5. [Inter-Agent Collaboration](#inter-agent-collaboration)
+6. [Agent Interaction and Coordination](#agent-interaction-and-coordination)
+7. [How RAgents Swarm Works](#how-ragents-swarm-works)
+8. [The Interconnected Future](#the-interconnected-future)
+
 ## Our System's Objectives
 ![Introduction about Vision](./image/introduction_about_vision.png)
 ### 1. Providing a Framework and Environment for Resource Providers
@@ -52,11 +71,8 @@ Agents of different types, owned by the same individual or organization, can int
 ## Agent Interaction and Coordination
 In our system, agents owned by an individual or organization have the right to interact and utilize each other's resources freely and appropriately. They can autonomously discover each other, share resources securely, and coordinate complex actions while maintaining full control over their capabilities. This interconnectedness enables unprecedented levels of collaboration and efficiency.
 
-
 ## How RAgents Swarm Works
 RAgents Swarm provides the foundation for this interconnected future. Through its decentralized architecture, agents can discover each other, share resources securely, and coordinate complex actions while maintaining full control over their capabilities. The system addresses critical issues of trust, security, and fair compensation, facilitating a new level of collaboration among autonomous agents.
-
-
 
 ## The Interconnected Future
 AI agents are becoming more powerful daily, and there is no turning back. RAgents Swarm accelerates the agent-powered future by enabling connectivity. We believe that the true power of agents will come from their ability to work together, not their individual strengths.
