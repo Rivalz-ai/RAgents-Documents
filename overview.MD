@@ -1,7 +1,7 @@
 # Core Structure of Our RAgents System
 
 ## Introduction
-We are currently developing a system that enables providers to contribute resources. These resources are processed and securely stored on blockchain networks. Resources are then automatically and intelligently distributed to users through agents integrated into these resources.
+We are developing a framework for resource-associated Agents or rAgents with comprehensive verifiability. Separately, we are creating a system for large-scale swarm orchestration, including mas-rAgent management.
 
 ---
 
