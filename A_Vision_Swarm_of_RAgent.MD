@@ -15,7 +15,7 @@ RAgents Swarm is a distributed AI agent system designed to connect and coordinat
     2. [Application of Compute Agent](#application-of-compute-agent)
     3. [Application of Data Agent](#application-of-data-agent)
     4. [Application of Execution Agent](#application-of-execution-agent)
-    5. [General others Resource Agents](#general-others-resource-agents)
+    5. [General Resource Agents](#general-resource-agents)
 5. [Inter-Agent Collaboration](#inter-agent-collaboration)
 6. [Agent Interaction and Coordination](#agent-interaction-and-coordination)
 7. [How RAgents Swarm Works](#how-ragents-swarm-works)
@@ -23,6 +23,7 @@ RAgents Swarm is a distributed AI agent system designed to connect and coordinat
 
 ## Our System's Objectives
 ![Introduction about Vision](./image/introduction_about_vision.png)
+
 ### 1. Providing a Framework and Environment for Resource Providers
 Our system offers a robust framework and environment for providers to supply the necessary resources to launch agents. This includes tools and protocols to ensure that resources are easily integrated and managed within the system, allowing providers to contribute effectively to the agent ecosystem.
 
