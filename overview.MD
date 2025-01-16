@@ -19,7 +19,7 @@ Providers can stake computing resources such as CPUs, GPUs, and RAM. These are a
 ### **4. Execution Resources (R<sub>E</sub>)**
 Providers can stake Docker nodes and runtime environments.
 
-### **5. Customer Resources (R<sub>Custom</sub>)**
+### **5. Custom Resources (R<sub>Custom</sub>)**
 Users can contribute custom resources that may include:
 
 - **Custom APIs**: APIs for specialized services, such as translation, geolocation, or weather data, can become part of the system.
