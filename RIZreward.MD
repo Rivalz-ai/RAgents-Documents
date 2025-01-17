@@ -2,12 +2,12 @@
 
 ## Overview
 
-The RIZ Reward System is designed to incentivize providers who contribute resources (RX, RC, RD, RE) or borrow resources on our platform. Providers are rewarded with **RIZ tokens**, our native cryptocurrency, which has a total supply of **5,000,000,000 RIZ** and an initial valuation of **$0.10 per RIZ**, equating to a total valuation of **$500,000,000**.
+The RIZ Reward System is designed to incentivize providers who contribute in-house rAgent (RX, RC, RD, RE) or borrow rAgent on our platform. Providers are rewarded with **RIZ tokens**, our native cryptocurrency, which has a total supply of **5,000,000,000 RIZ** and an initial valuation of **$0.10 per RIZ**, equating to a total valuation of **$500,000,000**.
 
 This system aims to:
 
-1. **Encourage Resource Contribution**: Providers can mint resource tokens (RC, RX, RD, RE) and be rewarded with RIZ tokens based on the action cost and fixed ETH price.
-2. **Promote Resource Utilization**: Borrowers who utilize resources are also rewarded in RIZ tokens, ensuring active participation in the ecosystem.
+1. **Encourage rAgent Contribution**: Providers can mint rAgent tokens (RC, RX, RD, RE) and be rewarded with RIZ tokens based on the action cost and fixed ETH price.
+2. **Promote rAgent Utilization**: Borrowers who utilize rAgent are also rewarded in RIZ tokens, ensuring active participation in the ecosystem.
 3. **Establish Market Liquidity**: An initial set of 1000 fake RC, RD, and RE tokens will be minted to bootstrap the lending market and foster liquidity.
 
 The reward calculation mechanism ensures fairness and scalability, aligning incentives for both contributors and users. Below, we describe the reward structure, formulas, and examples in detail to provide a clear understanding of how rewards are calculated and distributed.
@@ -45,30 +45,30 @@ The reward calculation mechanism ensures fairness and scalability, aligning ince
 
 ### Reward Formula
 #### For Minting Actions:
-The reward amount for minting resource tokens (RC, RX, RD, RE) is calculated as follows:
+The reward amount for minting rAgent tokens (RC, RX, RD, RE) is calculated as follows:
 \[
 \text{Reward Amount (RIZ)} = \frac{\text{Action Cost (USD)}}{\text{Fixed ETH Price (ETH)}}
 \]
 
-- **Action Cost**: The cost paid by the provider to mint a resource token, denominated in USD.
+- **Action Cost**: The cost paid by the provider to mint a rAgent token, denominated in USD.
 - **Fixed ETH Price**: The fixed conversion rate for 1 USD to ETH (e.g., 0.00012 ETH).
 - The formula ensures that higher costs (in USD) result in proportionally higher rewards in RIZ tokens.
 
 #### For Borrowing Actions:
-The reward amount for borrowing resources is calculated based on a fixed reward structure:
+The reward amount for borrowing rAgent is calculated based on a fixed reward structure:
 \[
 \text{Reward Amount (RIZ)} = \text{Fixed Reward (RIZ per Month)} \times \text{Borrowing Duration (Months)}
 \]
 
 - **Fixed Reward**: A predefined amount of RIZ tokens awarded for each month of borrowing.
-- **Borrowing Duration**: The number of months the resource is borrowed.
+- **Borrowing Duration**: The number of months the rAgent is borrowed.
 
 ### Explanation of Reward Mechanism
 1. **Minting Actions**:
    - Providers who mint tokens (RC, RX, RD, RE) are rewarded with RIZ tokens based on their contribution. The reward ensures fairness by directly correlating with the action cost in USD.
 
 2. **Borrowing Actions**:
-   - Borrowers are incentivized to utilize resources by receiving fixed RIZ rewards. This encourages long-term participation and resource usage.
+   - Borrowers are incentivized to utilize rAgent by receiving fixed RIZ rewards. This encourages long-term participation and rAgent usage.
 
 ### Example Calculations
 
@@ -102,7 +102,7 @@ The provider is rewarded with 150 RIZ tokens for creating and naming an agent.
 
 1. **Reward Types**:
    - Actions such as minting RC, RX, RD, and RE are **one-time actions** rewarded with a fixed amount of RIZ.
-   - Borrowing rewards are dependent on the duration and resource type.
+   - Borrowing rewards are dependent on the duration and rAgent type.
 
 2. **Action Cost**:
    - Action costs are additional payments in ETH or USDC, excluding transaction fees.
