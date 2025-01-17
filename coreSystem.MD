@@ -8,10 +8,10 @@ The core of the RAgents system revolves around resource contribution, staking, a
 ## Resource Types and Their Management
 
 ### **1. Data Resources**
-Providers contribute datasets, files, or streams. These resources are securely tokenized and managed, ensuring both provider ownership and user accessibility.
+Providers contribute datasets, files, storage or streams. These resources are securely tokenized and managed, ensuring both provider ownership and user accessibility.
 
 ### **2. Social Resources**
-Stake social media accounts or network connections. Permissions are distributed securely to allow interaction via Agents.
+Stake social accounts or network connections. Permissions are distributed securely to allow interaction via Agents.
 
 ### **3. Compute Resources**
 Providers stake computing power, such as CPUs, GPUs, and RAM, to support compute-heavy tasks.

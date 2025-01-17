@@ -113,7 +113,7 @@ export const computeResourcesPlugin = {
 ### 2. RX (Social Resources)
 
 #### **Purpose:**
-Interact with social media platforms (Twitter, Discord, Facebook). Support tasks such as posting content, commenting, analyzing sentiment, and scheduling posts.
+Interact with social platforms (Twitter, Discord, Facebook). Support tasks such as posting content, commenting, analyzing sentiment, and scheduling posts.
 
 #### **JSON Definition:**
 ```json
