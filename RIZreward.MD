@@ -46,9 +46,9 @@ The reward calculation mechanism ensures fairness and scalability, aligning ince
 ### Reward Formula
 #### For Minting Actions:
 The reward amount for minting rAgent tokens (RC, RX, RD, RE) is calculated as follows:
-\[
-\text{Reward Amount (RIZ)} = \frac{\text{Action Cost (USD)}}{\text{Fixed ETH Price (ETH)}}
-\]
+```
+Reward Amount (RIZ) = Reward Multiplier * Action Cost (USD) / Fixed ETH Price (ETH)
+```
 
 - **Action Cost**: The cost paid by the provider to mint a rAgent token, denominated in USD.
 - **Fixed ETH Price**: The fixed conversion rate for 1 USD to ETH (e.g., 0.00012 ETH).
@@ -56,9 +56,9 @@ The reward amount for minting rAgent tokens (RC, RX, RD, RE) is calculated as fo
 
 #### For Borrowing Actions:
 The reward amount for borrowing rAgent is calculated based on a fixed reward structure:
-\[
-\text{Reward Amount (RIZ)} = \text{Fixed Reward (RIZ per Month)} \times \text{Borrowing Duration (Months)}
-\]
+```
+Reward Amount (RIZ) = Fixed Reward (RIZ per Month) x Borrowing Duration (Months)
+```
 
 - **Fixed Reward**: A predefined amount of RIZ tokens awarded for each month of borrowing.
 - **Borrowing Duration**: The number of months the rAgent is borrowed.
