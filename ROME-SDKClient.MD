@@ -1,95 +1,71 @@
-# ROME SDK - Agent Orchestration Framework
+# ROME SDK - Swarm Orchestration Framework
 
 ## Table of Contents
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction)
+   - [Key Benefits](#key-benefits)
+   - [Swarm as a Primitive](#swarm-as-a-primitive)
+   - [System Overview](#system-overview)
 
-   1.1. [Key Benefits](#key-benefits-of-the-agent-swarm-protocol)
+2. [Core Features](#2-core-features)
+   2.1. [Agent Lifecycle Management](#21-agent-lifecycle-management)
+       - [Agent Creation and Initialization](#211-agent-creation-and-initialization)
+       - [State Management and Persistence](#212-state-management-and-persistence)
+       - [Graceful Shutdown and Recovery](#213-graceful-shutdown-and-recovery)
+       - [Health Monitoring and Auto-healing](#214-health-monitoring-and-auto-healing)
+   
+   2.2. [Swarm Orchestration](#22-swarm-orchestration)
+       - [Dynamic Swarm Formation](#221-dynamic-swarm-formation)
+       - [Role-based Agent Organization](#222-role-based-agent-organization)
+       - [Task Distribution and Load Balancing](#223-task-distribution-and-load-balancing)
+       - [Consensus Mechanisms](#224-consensus-mechanisms)
+   
+   2.3. [Communication Patterns](#23-communication-patterns)
+       - [P2P Direct Messaging](#231-p2p-direct-messaging)
+       - [Pub/Sub Event System](#232-pubsub-event-system)
+       - [Broadcast Communications](#233-broadcast-communications)
+       - [Message Queuing and Persistence](#234-message-queuing-and-persistence)
+   
+   2.4. [Resource Management](#24-resource-management)
+       - [Compute Resource Sharing](#241-compute-resource-sharing)
+       - [Storage Allocation](#242-storage-allocation)
+       - [Memory Management](#243-memory-management)
+       - [Resource Discovery](#244-resource-discovery)
+   
+   2.5. [Security & Access Control](#25-security--access-control)
+       - [Agent Authentication](#251-agent-authentication)
+       - [Capability-based Security](#252-capability-based-security)
+       - [Encryption for Data in Transit](#253-encryption-for-data-in-transit)
+       - [Access Token Management](#254-access-token-management)
 
-   1.2. [Objectives](#objectives-of-the-agent-swarm-protocol)
+3. [Getting Started](#3-getting-started)
+   3.1. [Installation](#31-installation)
+   3.2. [Quick Start](#32-quick-start)
+       - [Create an Agent](#321-create-an-agent)
+       - [Form a Swarm](#322-form-a-swarm)
+       - [Implement Communication](#323-implement-communication)
 
-   1.3. [Use Cases](#use-cases)
+4. [Advanced Usage](#4-advanced-usage)
+   4.1. [Custom Behaviors](#41-custom-behaviors)
+   4.2. [Swarm Policies](#42-swarm-policies)
 
-2. [Core Features](#-core-features)
+## 1. Introduction
 
-   2.1. [Agent Lifecycle Management](#1-agent-lifecycle-management)
+### Key Benefits
+- Decentralized agent coordination
+- Fault-tolerant operations
+- Efficient resource utilization
+- Secure communication channels
+- Cross-platform compatibility
 
-   2.2. [Swarm Orchestration](#2-swarm-orchestration)
+### Swarm as a Primitive
+Swarms serve as the fundamental building block for multi-agent systems, providing:
+- Dynamic agent grouping
+- Resource pooling
+- Task distribution
+- Collective decision-making
 
-   2.3. [Communication Patterns](#3-communication-patterns)
+### System Overview
 
-   2.4. [Resource Management](#4-resource-management)
-
-   2.5. [Security & Access Control](#5-security--access-control)
-
-3. [Getting Started](#-installation)
-
-   3.1. [Installation](#-installation)
-
-   3.2. [Quick Start](#-quick-start)
-
-      3.2.1. [Create an Agent](#1-create-an-agent)
-
-      3.2.2. [Form a Swarm](#2-form-a-swarm)
-
-      3.2.3. [Implement Communication](#3-implement-communication)
-
-4. [Security](#-security-implementation)
-
-   4.1. [Authentication](#authentication)
-
-   4.2. [Capability Exchange](#capability-exchange)
-
-5. [Resource Management](#-resource-management)
-
-   5.1. [Resource Sharing](#resource-sharing)
-
-   5.2. [Resource Monitoring](#resource-monitoring)
-
-6. [Task Management](#-task-orchestration)
-
-   6.1. [Task Distribution](#task-distribution)
-
-   6.2. [Error Handling](#error-handling)
-
-7. [System Monitoring](#-monitoring--analytics)
-
-   7.1. [Metrics Collection](#metrics-collection)
-
-   7.2. [Performance Analysis](#performance-analysis)
-
-8. [Integration](#-integration-patterns)
-
-   8.1. [External Services](#external-service-integration)
-
-   8.2. [Event Streaming](#event-streaming)
-
-9. [Advanced Usage](#-advanced-configuration)
-
-   9.1. [Custom Behaviors](#custom-agent-behaviors)
-
-   9.2. [Swarm Policies](#swarm-policies)
-
-10. [Creating Custom Swarms](#-creating-custom-swarms)
-
-    10.1. [Basic Setup](#basic-swarm-setup)
-
-    10.2. [Communication](#agent-communication)
-
-    10.3. [Resource Management](#resource-sharing)
-
-    10.4. [Task Distribution](#task-distribution)
-
-    10.5. [Example Use Cases](#example-use-cases)
-
-11. [Documentation](#-api-documentation)
-
-    11.1. [API Reference](#-api-documentation)
-
-    11.2. [Contributing Guide](#-contributing)
-
-    11.3. [License](#-license)
-
-## Introduction
 ### Key Benefits of the Agent Swarm Protocol
 
 - **Decentralization:** Removes reliance on central controllers, enabling agents to operate independently.
@@ -144,46 +120,11 @@ The Agent Swarm Protocol has applications in various industries, including but n
     - Efficient coordination and communication between smart devices in an IoT ecosystem.
     - Automated responses to environmental changes.
 
-## 🚀 Core Features
+## 2. Core Features
 
-### 1. Agent Lifecycle Management
-- Agent creation and initialization
-- State management and persistence
-- Graceful shutdown and recovery
-- Health monitoring and auto-healing
+### 2.1 Agent Lifecycle Management
 
-### 2. Swarm Orchestration
-- Dynamic swarm formation
-- Role-based agent organization
-- Task distribution and load balancing
-- Consensus mechanisms for decision making
-
-### 3. Communication Patterns
-- P2P direct messaging
-- Pub/Sub event system
-- Broadcast communications
-- Message queuing and persistence
-
-### 4. Resource Management
-- Compute resource sharing
-- Storage allocation
-- Memory management
-- Resource discovery and allocation
-
-### 5. Security & Access Control
-- Agent authentication
-- Capability-based security
-- Encryption for data in transit
-- Access token management
-
-## 📦 Installation
-
-```bash
-npm install @rome-sdk/core @rome-sdk/agents @rome-sdk/swarm
-```
-## 🔧 Quick Start
-### 1. Create an Agent
-
+#### 2.1.1 Agent Creation and Initialization
 ```typescript
 import { Agent, AgentConfig } from '@rome-sdk/agents';
 import { Swarm, SwarmConfig } from '@rome-sdk/swarm';
@@ -200,7 +141,25 @@ const config: AgentConfig = {
 const agent = new Agent(config);
 await agent.initialize();
 ```
-### 2. Form a Swarm
+
+#### 2.1.2 State Management and Persistence
+```typescript
+// ...existing state management code...
+```
+
+#### 2.1.3 Graceful Shutdown and Recovery
+```typescript
+// ...existing graceful shutdown and recovery code...
+```
+
+#### 2.1.4 Health Monitoring and Auto-healing
+```typescript
+// ...existing health monitoring and auto-healing code...
+```
+
+### 2.2 Swarm Orchestration
+
+#### 2.2.1 Dynamic Swarm Formation
 ```typescript
 const swarmConfig: SwarmConfig = {
   name: 'processing-swarm',
@@ -213,7 +172,34 @@ const swarm = new Swarm(swarmConfig);
 await swarm.addAgent(agent);
 ```
 
-### 3. Implement Communication
+#### 2.2.2 Role-based Agent Organization
+```typescript
+// ...existing role-based agent organization code...
+```
+
+#### 2.2.3 Task Distribution and Load Balancing
+```typescript
+const task = new Task({
+  id: 'task-001',
+  type: 'DATA_PROCESSING',
+  priority: 'HIGH',
+  timeout: '5m'
+});
+
+await swarm.distributeTask(task, {
+  strategy: 'round-robin',
+  retries: 3
+});
+```
+
+#### 2.2.4 Consensus Mechanisms
+```typescript
+// ...existing consensus mechanisms code...
+```
+
+### 2.3 Communication Patterns
+
+#### 2.3.1 P2P Direct Messaging
 ```typescript
 // Subscribe to events
 agent.on('message', async (message) => {
@@ -226,8 +212,58 @@ await agent.sendMessage('agent-002', {
   payload: { taskId: 'task-001' }
 });
 ```
-## 🔐 Security Implementation
-###  Authentication
+
+#### 2.3.2 Pub/Sub Event System
+```typescript
+// ...existing pub/sub event system code...
+```
+
+#### 2.3.3 Broadcast Communications
+```typescript
+// ...existing broadcast communications code...
+```
+
+#### 2.3.4 Message Queuing and Persistence
+```typescript
+// ...existing message queuing and persistence code...
+```
+
+### 2.4 Resource Management
+
+#### 2.4.1 Compute Resource Sharing
+```typescript
+// Share resources
+await agent.shareResource({
+  type: 'COMPUTE',
+  amount: '500MB',
+  target: 'agent-003',
+  duration: '30m'
+});
+
+// Monitor usage
+agent.on('resource-usage', (metrics) => {
+  console.log('Current usage:', metrics);
+});
+```
+
+#### 2.4.2 Storage Allocation
+```typescript
+// ...existing storage allocation code...
+```
+
+#### 2.4.3 Memory Management
+```typescript
+// ...existing memory management code...
+```
+
+#### 2.4.4 Resource Discovery
+```typescript
+// ...existing resource discovery code...
+```
+
+### 2.5 Security & Access Control
+
+#### 2.5.1 Agent Authentication
 ```typescript
 import { SecurityManager } from '@rome-sdk/core';
 
@@ -238,7 +274,8 @@ const security = new SecurityManager({
 
 const token = await security.generateToken(agent.id);
 ```
-### Capability Exchange
+
+#### 2.5.2 Capability-based Security
 ```typescript
 // Grant capability
 await agent.grantCapability('storage-access', {
@@ -254,94 +291,73 @@ await agent.useCapability('storage-access', {
 });
 ```
 
-## 📊 Resource Management
-
-### Resource Sharing
-``` typescript
-// Share resources
-await agent.shareResource({
-  type: 'COMPUTE',
-  amount: '500MB',
-  target: 'agent-003',
-  duration: '30m'
-});
-
-// Monitor usage
-agent.on('resource-usage', (metrics) => {
-  console.log('Current usage:', metrics);
-});
-```
-## 🔄 Task Orchestration
-### Task Distribution
-
+#### 2.5.3 Encryption for Data in Transit
 ```typescript
-const task = new Task({
-  id: 'task-001',
-  type: 'DATA_PROCESSING',
-  priority: 'HIGH',
-  timeout: '5m'
-});
-
-await swarm.distributeTask(task, {
-  strategy: 'round-robin',
-  retries: 3
-});
-````
-### Error Handling
-``typescript
-swarm.on('task-failed', async (taskId, error) => {
-  const task = await Task.get(taskId);
-  await swarm.redistributeTask(task, {
-    excludeAgent: error.agentId
-  });
-});
+// ...existing encryption for data in transit code...
 ```
-## 📈 Monitoring & Analytics
 
+#### 2.5.4 Access Token Management
 ```typescript
-const metrics = new MetricsCollector(swarm);
-
-metrics.on('update', (stats) => {
-  console.log('Swarm Statistics:', {
-    activeAgents: stats.agents.active,
-    completedTasks: stats.tasks.completed,
-    resourceUtilization: stats.resources.utilization
-  });
-});
+// ...existing access token management code...
 ```
-## 🔗 Integration Patterns
 
-### External Service Integration
+## 3. Getting Started
+
+### 3.1 Installation
+```bash
+npm install @rome-sdk/core @rome-sdk/agents @rome-sdk/swarm
+```
+
+### 3.2 Quick Start
+
+#### 3.2.1 Create an Agent
 ```typescript
-import { ServiceConnector } from '@rome-sdk/core';
+import { Agent, AgentConfig } from '@rome-sdk/agents';
+import { Swarm, SwarmConfig } from '@rome-sdk/swarm';
 
-const database = new ServiceConnector({
-  type: 'DATABASE',
-  url: process.env.DB_URL,
-  credentials: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS
+const config: AgentConfig = {
+  id: 'agent-001',
+  capabilities: ['compute', 'storage'],
+  resources: {
+    maxMemory: '1GB',
+    maxCPU: 2
   }
-});
+};
 
-await agent.registerService(database);
+const agent = new Agent(config);
+await agent.initialize();
 ```
 
-### Event Streaming
-
+#### 3.2.2 Form a Swarm
 ```typescript
-import { EventStream } from '@rome-sdk/core';
+const swarmConfig: SwarmConfig = {
+  name: 'processing-swarm',
+  minAgents: 3,
+  maxAgents: 10,
+  consensusStrategy: 'raft'
+};
 
-const stream = new EventStream({
-  topic: 'agent-events',
-  persistence: true,
-  partitions: 3
+const swarm = new Swarm(swarmConfig);
+await swarm.addAgent(agent);
+```
+
+#### 3.2.3 Implement Communication
+```typescript
+// Subscribe to events
+agent.on('message', async (message) => {
+  console.log('Received:', message);
 });
 
-await agent.connectToStream(stream);
+// Send message to another agent
+await agent.sendMessage('agent-002', {
+  type: 'TASK_ASSIGNMENT',
+  payload: { taskId: 'task-001' }
+});
 ```
-## 📚 Advanced Configuration
-### Custom Agent Behaviors
+
+## 4. Advanced Usage
+
+### 4.1 Custom Behaviors
 ```typescript
 class CustomAgent extends Agent {
   async onMessageReceived(message: Message) {
@@ -353,7 +369,8 @@ class CustomAgent extends Agent {
   }
 }
 ```
-## Swarm Policies
+
+### 4.2 Swarm Policies
 ```typescript
 const policy = new SwarmPolicy({
   scaling: {
@@ -373,6 +390,7 @@ const policy = new SwarmPolicy({
 
 await swarm.applyPolicy(policy);
 ```
+
 ## 📚 Creating Custom Swarms
 
 ### Basic Swarm Setup
