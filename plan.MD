@@ -1,6 +1,6 @@
 # Resource Integration Guide
 
-This document serves as a comprehensive guide to defining, integrating, and developing plugins for various resource types (**RC**, **RX**, **RD**, **RE**) in your Agent system. The guide includes:
+This document serves as a comprehensive guide to defining, integrating, and developing plugins for various resource types (**RC**, **RX**, **RD**, **RE**) in Agent system. The guide includes:
 
 1. Detailed JSON structure for each resource type.
 2. Example actions for API calls to handle resource-specific tasks.
