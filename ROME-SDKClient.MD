@@ -1,9 +1,7 @@
 # ROME SDK - Agent Orchestration Framework
 
-
 ## Introduction
-
-The **Agent Swarm Protocol** is a robust framework designed to facilitate seamless cooperation among autonomous agents in a decentralized, scalable, and secure ecosystem. By leveraging advanced communication and resource-sharing mechanisms, this protocol empowers intelligent agents to exchange information, allocate resources dynamically, and optimize their operations without human intervention.
+The **Agent Swarm Protocol** (ROME-SDK) provides a powerful toolkit for integrating rAgents with diverse resources and orchestrating them in scalable multi-agent ecosystems. By combining advanced resource-sharing capabilities with robust communication layers, it simplifies building swarms of agents that can operate both independently and collaboratively.
 
 As industries increasingly rely on distributed systems, the demand for effective agent collaboration grows. This protocol ensures smooth and reliable operations by providing mechanisms for peer-to-peer communication, secure resource sharing, automated discovery, and fault tolerance. With the Agent Swarm Protocol, organizations can create self-sustaining ecosystems where agents autonomously coordinate tasks, manage workloads, and recover from failures, contributing to a highly resilient and efficient system.
 
