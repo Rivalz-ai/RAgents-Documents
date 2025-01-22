@@ -1,137 +1,129 @@
-# Core System and Resource Management
+# Core System Architecture
 
 ## Overview
-The core of the RAgents system revolves around resource contribution, staking, and secure management. Providers contribute data, social, compute, and execution resources, which are then tokenized and managed using blockchain technology. These resources are intelligently distributed and accessed through AI-powered agents (RAgents).
+Our system consists of two main development streams:
+1. RAgent Development Framework
+2. Multi-Agent Orchestration SDK
 
----
+## 1. RAgent Development Framework
 
-## Resource Types and Their Management
+### Built-in RAgents
+We provide four core resource agent types:
+- **Data Resources (RD)**: For managing datasets, files, and streams
+- **Social Resources (RX)**: For social media account interactions
+- **Compute Resources (RC)**: For CPU, GPU, and RAM management
+- **Execution Resources (RE)**: For Docker and runtime environments
 
-### **1. Data Resources**
-Providers contribute datasets, files, storage or streams. These resources are securely tokenized and managed, ensuring both provider ownership and user accessibility.
+### Custom RAgent Development
+Providers can contribute new agent types by:
+1. Cloning our framework
+2. Implementing resource interactions
+3. Configuring environment settings
+4. Submitting for review and integration
 
-### **2. Social Resources**
-Stake social accounts or network connections. Permissions are distributed securely to allow interaction via Agents.
+![RAgent Development Process](image/Agent_interact_Resources.png)
 
-### **3. Compute Resources**
-Providers stake computing power, such as CPUs, GPUs, and RAM, to support compute-heavy tasks.
-
-### **4. Execution Resources**
-Providers stake Docker nodes or runtime environments for task execution.
-
----
-
-## Secure Resource Management
-
-### Contribution Flow:
-1. **Submission**: Providers submit their resources via the ROME Dashboard.
-2. **Validation**: Resources undergo compliance, scoring, and blacklist checks.
-3. **Tokenization**: Resources are tokenized into NFTs for tracking and staking.
-4. **Storage**: Validated resources are securely stored in the Resources Data Center.
-
-**Example Flow Diagram:**
-```plaintext
-Provider --> ROME Dashboard --> Validation --> Tokenization --> Blockchain --> Resources DC
-```
-
----
-
-## JSON Configuration for Resource Submission
-Providers can use the following JSON structure to submit their resources:
-
+### Resource Configuration Example
 ```json
 {
-  "resourceName": "Example Resource",
-  "resourceType": "data",
-  "providerID": "provider123",
+  "resourceName": "Custom Resource",
+  "resourceType": "custom",
   "auth": {
-    "wallet": "0xABC123...",
-    "credentials": "secure-token"
+    "apiKey": "${RESOURCE_API_KEY}",
+    "endpoint": "${RESOURCE_ENDPOINT}"
   },
-  "metadata": {
-    "description": "Dataset of urban traffic patterns",
-    "size": "2GB",
-    "tags": ["traffic", "urban", "AI"]
-  },
-  "settings": {
-    "permissions": ["read", "write"],
-    "stake": true
-  }
+  "capabilities": [
+    "read",
+    "write",
+    "execute"
+  ]
 }
 ```
 
----
+### Environment Configuration
+```env
+# Resource Authentication
+RESOURCE_API_KEY=your_api_key
+RESOURCE_ENDPOINT=https://api.example.com
 
-## Security Mechanisms
-- **Authentication**: Only authorized users can access resources.
-- **Validation Checks**: Resources are scored, checked for compliance, and verified for safety.
-- **Tokenization**: Converts resources into NFTs, ensuring immutable tracking and ownership.
+# Resource Settings
+RESOURCE_MAX_CONNECTIONS=100
+RESOURCE_TIMEOUT=30000
+```
 
----
+## 2. Multi-Agent Orchestration SDK
 
-## Examples of Resource Contribution
+### SDK Features
+- Agent interaction protocols
+- Resource sharing mechanisms
+- Task distribution systems
+- Swarm management tools
 
-### Example 1: Contributing Compute Resources
-```json
-{
-  "resourceName": "High-Performance GPU Cluster",
-  "resourceType": "compute",
-  "providerID": "providerGPU567",
-  "auth": {
-    "wallet": "0xDEF456...",
-    "credentials": "secure-token"
-  },
-  "metadata": {
-    "description": "NVIDIA A100 GPU cluster for AI workloads",
-    "specifications": {
-      "GPU": "8x NVIDIA A100",
-      "RAM": "512GB",
-      "CPU": "AMD EPYC 64-Core Processor"
-    },
-    "tags": ["AI", "compute", "GPU"]
-  },
-  "settings": {
-    "permissions": ["execute"],
-    "stake": true
+### Swarm Orchestration
+Users can:
+1. Create custom multi-agent systems
+2. Define interaction patterns
+3. Build specialized use cases
+4. Contribute new orchestration methods
+
+![Swarm SDK Architecture](image/SwarmSDK.png)
+
+### Example SDK Usage
+```typescript
+// Create a swarm of agents
+const swarm = new Swarm({
+  agents: [socialAgent, computeAgent, dataAgent],
+  orchestration: {
+    type: 'collaborative',
+    strategy: 'round-robin'
   }
-}
+});
+
+// Define interaction patterns
+swarm.defineInteraction({
+  between: ['socialAgent', 'dataAgent'],
+  protocol: 'request-response',
+  sharing: ['data', 'results']
+});
 ```
 
-### Example 2: Contributing Social Resources
-```json
-{
-  "resourceName": "Verified Twitter Account",
-  "resourceType": "social",
-  "providerID": "providerSocial234",
-  "auth": {
-    "wallet": "0xGHI789...",
-    "credentials": "secure-token"
-  },
-  "metadata": {
-    "description": "Official Twitter account for community outreach",
-    "username": "@TechUpdates",
-    "followers": 15000,
-    "tags": ["social", "networking"]
-  },
-  "settings": {
-    "permissions": ["post", "interact"],
-    "stake": true
-  }
-}
-```
+## Contribution Flows
 
----
+### 1. RAgent Contribution
+1. Clone framework repository
+2. Implement new agent type
+3. Configure resource access
+4. Submit pull request with:
+   - Agent implementation
+   - Resource configuration
+   - Documentation
+   - Tests
 
-## Tokenization Example
-Once validated, resources are tokenized as follows:
+### 2. SDK Contribution
+1. Fork SDK repository
+2. Add new orchestration patterns
+3. Create example use cases
+4. Submit merge request with:
+   - Implementation
+   - Documentation
+   - Usage examples
+   - Performance benchmarks
 
-```plaintext
-Resource ID: resource123
-Token ID: nft-resource123-0xABC123
-Blockchain: Ethereum
-Provider Wallet: 0xABC123...
-```
+## Security and Validation
 
----
+### Resource Validation
+- Compliance checking
+- Security auditing
+- Performance testing
+- Integration validation
 
-This README provides a comprehensive look into the core system and resource management of the RAgents framework. For more details on integration and advanced features, refer to the other sections of our documentation.
+### SDK Validation
+- Pattern verification
+- Security assessment
+- Scalability testing
+- Use case validation
+
+## Documentation Links
+- [RAgent Development Guide](plan.MD)
+- [SDK Usage Guide](ROME-SDKClient.MD)
+- [Resource Integration Guide](rAgent-integration.MD)
