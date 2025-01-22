@@ -22,6 +22,7 @@
    2.5. [Security & Access Control](#5-security--access-control)
 
 3. [Getting Started](#-installation)
+
    3.1. [Installation](#-installation)
 
    3.2. [Quick Start](#-quick-start)
