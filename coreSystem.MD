@@ -45,13 +45,6 @@ Providers can contribute new agent types by:
 ### Resource Configuration Example
 ```json
 {
-  "resourceName": "Custom Resource",
-  "resourceType": "custom",
-  "auth": {
-    "apiKey": "${RESOURCE_API_KEY}",
-    "endpoint": "${RESOURCE_ENDPOINT}"
-  },
-  "capabilities": [
     "read",
     "write",
     "execute"

@@ -1,51 +1,94 @@
 # ROME SDK - Agent Orchestration Framework
 
 ## Table of Contents
-- [Introduction](#introduction)
-  - [Key Benefits](#key-benefits-of-the-agent-swarm-protocol)
-  - [Objectives](#objectives-of-the-agent-swarm-protocol)
-  - [Use Cases](#use-cases)
-- [Core Features](#-core-features)
-  - [Agent Lifecycle Management](#1-agent-lifecycle-management)
-  - [Swarm Orchestration](#2-swarm-orchestration)
-  - [Communication Patterns](#3-communication-patterns)
-  - [Resource Management](#4-resource-management)
-  - [Security & Access Control](#5-security--access-control)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-  - [Create an Agent](#1-create-an-agent)
-  - [Form a Swarm](#2-form-a-swarm)
-  - [Implement Communication](#3-implement-communication)
-- [Security Implementation](#-security-implementation)
-  - [Authentication](#authentication)
-  - [Capability Exchange](#capability-exchange)
-- [Resource Management](#-resource-management)
-  - [Resource Sharing](#resource-sharing)
-- [Task Orchestration](#-task-orchestration)
-  - [Task Distribution](#task-distribution)
-  - [Error Handling](#error-handling)
-- [Monitoring & Analytics](#-monitoring--analytics)
-- [Integration Patterns](#-integration-patterns)
-  - [External Service Integration](#external-service-integration)
-  - [Event Streaming](#event-streaming)
-- [Advanced Configuration](#-advanced-configuration)
-  - [Custom Agent Behaviors](#custom-agent-behaviors)
-  - [Swarm Policies](#swarm-policies)
-- [API Documentation](#-api-documentation)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Creating Custom Swarms](#-creating-custom-swarms)
-  - [Basic Swarm Setup](#basic-swarm-setup)
-  - [Agent Communication](#agent-communication)
-  - [Resource Sharing](#resource-sharing)
-  - [Task Distribution](#task-distribution)
-  - [Example Use Cases](#example-use-cases)
+1. [Introduction](#introduction)
+
+   1.1. [Key Benefits](#key-benefits-of-the-agent-swarm-protocol)
+
+   1.2. [Objectives](#objectives-of-the-agent-swarm-protocol)
+
+   1.3. [Use Cases](#use-cases)
+
+2. [Core Features](#-core-features)
+
+   2.1. [Agent Lifecycle Management](#1-agent-lifecycle-management)
+
+   2.2. [Swarm Orchestration](#2-swarm-orchestration)
+
+   2.3. [Communication Patterns](#3-communication-patterns)
+
+   2.4. [Resource Management](#4-resource-management)
+
+   2.5. [Security & Access Control](#5-security--access-control)
+
+3. [Getting Started](#-installation)
+   3.1. [Installation](#-installation)
+
+   3.2. [Quick Start](#-quick-start)
+
+      3.2.1. [Create an Agent](#1-create-an-agent)
+
+      3.2.2. [Form a Swarm](#2-form-a-swarm)
+
+      3.2.3. [Implement Communication](#3-implement-communication)
+
+4. [Security](#-security-implementation)
+
+   4.1. [Authentication](#authentication)
+
+   4.2. [Capability Exchange](#capability-exchange)
+
+5. [Resource Management](#-resource-management)
+
+   5.1. [Resource Sharing](#resource-sharing)
+
+   5.2. [Resource Monitoring](#resource-monitoring)
+
+6. [Task Management](#-task-orchestration)
+
+   6.1. [Task Distribution](#task-distribution)
+
+   6.2. [Error Handling](#error-handling)
+
+7. [System Monitoring](#-monitoring--analytics)
+
+   7.1. [Metrics Collection](#metrics-collection)
+
+   7.2. [Performance Analysis](#performance-analysis)
+
+8. [Integration](#-integration-patterns)
+
+   8.1. [External Services](#external-service-integration)
+
+   8.2. [Event Streaming](#event-streaming)
+
+9. [Advanced Usage](#-advanced-configuration)
+
+   9.1. [Custom Behaviors](#custom-agent-behaviors)
+
+   9.2. [Swarm Policies](#swarm-policies)
+
+10. [Creating Custom Swarms](#-creating-custom-swarms)
+
+    10.1. [Basic Setup](#basic-swarm-setup)
+
+    10.2. [Communication](#agent-communication)
+
+    10.3. [Resource Management](#resource-sharing)
+
+    10.4. [Task Distribution](#task-distribution)
+
+    10.5. [Example Use Cases](#example-use-cases)
+
+11. [Documentation](#-api-documentation)
+
+    11.1. [API Reference](#-api-documentation)
+
+    11.2. [Contributing Guide](#-contributing)
+
+    11.3. [License](#-license)
 
 ## Introduction
-The **Agent Swarm Protocol** (ROME-SDK) provides a powerful toolkit for integrating rAgents with diverse resources and orchestrating them in scalable multi-agent ecosystems. By combining advanced resource-sharing capabilities with robust communication layers, it simplifies building swarms of agents that can operate both independently and collaboratively.
-
-As industries increasingly rely on distributed systems, the demand for effective agent collaboration grows. This protocol ensures smooth and reliable operations by providing mechanisms for peer-to-peer communication, secure resource sharing, automated discovery, and fault tolerance. With the Agent Swarm Protocol, organizations can create self-sustaining ecosystems where agents autonomously coordinate tasks, manage workloads, and recover from failures, contributing to a highly resilient and efficient system.
-
 ### Key Benefits of the Agent Swarm Protocol
 
 - **Decentralization:** Removes reliance on central controllers, enabling agents to operate independently.
