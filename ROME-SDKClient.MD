@@ -1,5 +1,46 @@
 # ROME SDK - Agent Orchestration Framework
 
+## Table of Contents
+- [Introduction](#introduction)
+  - [Key Benefits](#key-benefits-of-the-agent-swarm-protocol)
+  - [Objectives](#objectives-of-the-agent-swarm-protocol)
+  - [Use Cases](#use-cases)
+- [Core Features](#-core-features)
+  - [Agent Lifecycle Management](#1-agent-lifecycle-management)
+  - [Swarm Orchestration](#2-swarm-orchestration)
+  - [Communication Patterns](#3-communication-patterns)
+  - [Resource Management](#4-resource-management)
+  - [Security & Access Control](#5-security--access-control)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+  - [Create an Agent](#1-create-an-agent)
+  - [Form a Swarm](#2-form-a-swarm)
+  - [Implement Communication](#3-implement-communication)
+- [Security Implementation](#-security-implementation)
+  - [Authentication](#authentication)
+  - [Capability Exchange](#capability-exchange)
+- [Resource Management](#-resource-management)
+  - [Resource Sharing](#resource-sharing)
+- [Task Orchestration](#-task-orchestration)
+  - [Task Distribution](#task-distribution)
+  - [Error Handling](#error-handling)
+- [Monitoring & Analytics](#-monitoring--analytics)
+- [Integration Patterns](#-integration-patterns)
+  - [External Service Integration](#external-service-integration)
+  - [Event Streaming](#event-streaming)
+- [Advanced Configuration](#-advanced-configuration)
+  - [Custom Agent Behaviors](#custom-agent-behaviors)
+  - [Swarm Policies](#swarm-policies)
+- [API Documentation](#-api-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Creating Custom Swarms](#-creating-custom-swarms)
+  - [Basic Swarm Setup](#basic-swarm-setup)
+  - [Agent Communication](#agent-communication)
+  - [Resource Sharing](#resource-sharing)
+  - [Task Distribution](#task-distribution)
+  - [Example Use Cases](#example-use-cases)
+
 ## Introduction
 The **Agent Swarm Protocol** (ROME-SDK) provides a powerful toolkit for integrating rAgents with diverse resources and orchestrating them in scalable multi-agent ecosystems. By combining advanced resource-sharing capabilities with robust communication layers, it simplifies building swarms of agents that can operate both independently and collaboratively.
 
@@ -288,6 +329,189 @@ const policy = new SwarmPolicy({
 
 await swarm.applyPolicy(policy);
 ```
+## 📚 Creating Custom Swarms
+
+### Basic Swarm Setup
+
+1. Initialize your swarm with different agent types:
+```typescript
+import { Swarm, RAgent } from '@rome-sdk/core';
+
+// Create different types of agents
+const dataAgent = new RAgent({
+  type: 'RD',
+  capabilities: ['query', 'transform']
+});
+
+const computeAgent = new RAgent({
+  type: 'RC',
+  capabilities: ['execute', 'monitor']
+});
+
+// Create swarm with agents
+const swarm = new Swarm({
+  name: 'processing-swarm',
+  agents: [dataAgent, computeAgent],
+  config: {
+    communicationPattern: 'mesh',
+    resourceSharing: true
+  }
+});
+```
+
+### Agent Communication
+
+1. Define communication patterns:
+```typescript
+// Setup pub/sub communication
+swarm.setupCommunication({
+  pattern: 'pubsub',
+  topics: ['data-requests', 'compute-results']
+});
+
+// Subscribe to topics
+dataAgent.subscribe('compute-results', async (message) => {
+  await dataAgent.processResults(message);
+});
+
+computeAgent.subscribe('data-requests', async (message) => {
+  const result = await computeAgent.processData(message.data);
+  await computeAgent.publish('compute-results', result);
+});
+```
+
+2. Implement direct messaging:
+```typescript
+// Enable direct communication between agents
+swarm.enableDirectMessaging({
+  routes: [
+    {from: 'dataAgent', to: 'computeAgent'},
+    {from: 'computeAgent', to: 'dataAgent'}
+  ]
+});
+```
+
+### Resource Sharing
+
+1. Configure resource sharing policies:
+```typescript
+swarm.configureResourceSharing({
+  policy: {
+    cpu: {
+      maxSharedPercentage: 80,
+      priorityQueue: true
+    },
+    memory: {
+      maxSharedGB: 16,
+      reserveAmount: '4GB'
+    }
+  }
+});
+
+// Implement resource requests
+computeAgent.requestResource({
+  type: 'cpu',
+  amount: '4cores',
+  duration: '10m'
+});
+```
+
+### Task Distribution
+
+1. Set up task distribution patterns:
+```typescript
+const taskManager = swarm.createTaskManager({
+  strategy: 'round-robin',
+  balancing: 'load-based',
+  retry: {
+    maxAttempts: 3,
+    backoff: 'exponential'
+  }
+});
+
+// Define and distribute tasks
+const task = new Task({
+  type: 'data-processing',
+  priority: 'high',
+  dependencies: ['data-fetch', 'compute']
+});
+
+await taskManager.distribute(task);
+```
+
+### Example Use Cases
+
+1. Data Processing Pipeline:
+```typescript
+const dataPipeline = swarm.createPipeline({
+  name: 'data-processing',
+  stages: [
+    {
+      name: 'fetch',
+      agent: dataAgent,
+      action: 'fetchData'
+    },
+    {
+      name: 'process',
+      agent: computeAgent,
+      action: 'processData'
+    },
+    {
+      name: 'store',
+      agent: dataAgent,
+      action: 'storeResults'
+    }
+  ]
+});
+
+// Execute pipeline
+await dataPipeline.execute({
+  input: {
+    source: 'database-1',
+    query: 'SELECT * FROM users'
+  }
+});
+```
+
+2. Real-time Monitoring System:
+```typescript
+const monitoringSystem = swarm.createMonitor({
+  agents: ['computeAgent', 'dataAgent'],
+  metrics: ['cpu', 'memory', 'tasks'],
+  interval: '1s',
+  alerts: {
+    cpu: {threshold: 90, action: 'scale'},
+    memory: {threshold: 85, action: 'cleanup'}
+  }
+});
+
+// Start monitoring
+monitoringSystem.start();
+```
+
+3. Fault-Tolerant Job Processing:
+```typescript
+const jobProcessor = swarm.createJobProcessor({
+  queue: 'high-priority',
+  workers: {
+    min: 2,
+    max: 5,
+    scaleOn: 'queue-size'
+  },
+  fallback: {
+    strategy: 'retry-with-backup',
+    maxAttempts: 3
+  }
+});
+
+// Submit jobs
+await jobProcessor.submit({
+  type: 'data-analysis',
+  data: largeDataset,
+  timeout: '5m'
+});
+```
+
 ## 📖 API Documentation
 Detailed API documentation is available at: ...
 
