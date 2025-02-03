@@ -34,7 +34,32 @@ In this documents, we provide the guildline for:
   3. Provider contribute agents to our system.
   4. Resource configuration and management
 ### 1.3 Ragents - Structure of base agents 
+- Our rAgent includes the following core components:
+  1. Provider: Acts as the Agent’s brain. We offer a diverse LLM provider system, from open-source to closed-source, which can be integrated via API. The provider makes decisions for tasks, parses commands from users or other Agents, and responds accordingly.
+  2. Characters: Serve as the Agent’s base references, defining conversation style and thought patterns. Characters are integrated via a chain-of-thought mechanism.
+  3. Basic plugins: E.g., chitchat, answer, and natural language processing.
+  4. Client: A feedback channel available through API or web client.
+  5. Resource interaction plugins: Require keys to connect to resources, provide methods to perform actions, and handle tasks like posting to social platforms.
+  6. Resources settings: Where resource details are specified.
+  7. Methods for Swarms and P2P: Covered in the SDK, enabling each Agent to communicate with other Agents.
+
+
 ### 1.4 Benefits and Use Cases
+
+**Benefits**  
+- Automate tasks more effectively: rAgents can handle repetitive or time-consuming job flows, enabling faster turnarounds and minimizing human errors.  
+- Decentralized, parallel agent management: Multiple rAgents can operate concurrently across different resources, supporting higher scalability and reducing single points of failure.  
+- Monetize unused resources: Users can lease idle computing power or social media accounts to the network, opening new revenue streams while optimizing resource utilization.  
+- Flexible customization: With a modular plugin system, providers can easily tailor rAgents for specific needs, integrating custom APIs and specialized features without disrupting other components.  
+- Streamlined development environment: The common framework unifies configuration, testing, and deployment, helping both small teams and large enterprises build reliable agent solutions quickly.
+
+**Use Cases**  
+- Automated multi-account content operations: A user with several social networking accounts can link them to rAgents that create consistent, style-matched posts. This allows rapid marketing campaigns or updates without manual supervision.  
+- Agent collaboration in market analysis: One rAgent crawls data from multiple sources while another interprets the results, then a posting-focused rAgent publishes relevant insights. The system orchestrates these tasks seamlessly.  
+- Cost-effective resource sharing: Organizations or individuals with occasional surplus in CPU, GPU, or storage can lease them to other users, fostering a peer-to-peer ecosystem where providers earn and consumers save.  
+- Coordinated research and development tasks: Data-focused rAgents can pull large datasets, parse them, and feed insights to compute rAgents, which run simulations or machine learning models in parallel.  
+- Dynamic scaling for deployment: Execution rAgents automatically spin up new containers or VMs in response to heavy traffic, ensuring stable performance for applications that experience sudden spikes in demand.
+- ...
 
 ## 2. Built-in RAgent Types
 
