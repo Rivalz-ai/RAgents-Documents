@@ -20,9 +20,21 @@
 - [Documentation Links](#documentation-links)
 
 ## Overview
-Our system consists of two main development streams:
-1. RAgent Development Framework
-2. Multi-Agent Orchestration SDK
+
+### Introduction
+We are building a robust ecosystem centered on resource-based Agents (rAgents) with advanced verifiability, complemented by powerful multi-agent orchestration. This enables both the seamless development of new rAgents and the efficient coordination of large-scale agent swarms in production environments.
+
+---
+
+### System Development Focus
+We are developing the system in two major parts:
+1. Development of rAgents integrated with various resources (RD, RX, RE, RC, or custom). 
+   - Providers can clone our framework, add interaction methods, and supply resources via .env configuration. 
+   - After thorough review, we merge their contribution.
+2. Development of the SDK for creating and orchestrating a Swarm of Agents (multi-agent system). 
+   - Users can build custom multi-agent use cases from existing rAgents. 
+   - They can also contribute new orchestration methods or example use cases to our SDK.
+
 
 ## 1. RAgent Development Framework
 

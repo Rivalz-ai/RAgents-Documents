@@ -15,10 +15,26 @@
 
 ## 1. System Overview
 
-The RAgent system enables:
-1. Built-in resource agents (RX, RC, RD, RE)
-2. Custom agent contributions
-3. Resource configuration and management
+### 1.1 Introduction
+We are building a robust ecosystem centered on resource-based Agents (rAgents) with advanced verifiability, complemented by powerful multi-agent orchestration. This enables both the seamless development of new rAgents and the efficient coordination of large-scale agent swarms in production environments.
+
+![overview](image/overview.png)
+---
+
+### 1.2 Key components
+In this document, we focus on the structure and component compose the rAgents. In our framework, we have 2 types of rAgents:
+  1. Build-in rAgents integrated with various resources (RD, RX, RE, RC) is developed by our expert, it is easy to use and automated processing when users stake this resources to our systems.
+  2. Custem rAgents with custom resources is provider by users:
+      - Providers can clone our framework, develop the new methods, plugins to interaction with their resources, and supply resources via .env configuration. 
+      - After thorough review, we merge their contribution.
+
+In this documents, we provide the guildline for:
+  1. Structure of base agents 
+  2. Built-in resource agents (RX, RC, RD, RE) of our system. 
+  3. Provider contribute agents to our system.
+  4. Resource configuration and management
+### 1.3 Ragents - Structure of base agents 
+### 1.4 Benefits and Use Cases
 
 ## 2. Built-in RAgent Types
 
