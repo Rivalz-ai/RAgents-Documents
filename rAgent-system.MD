@@ -23,12 +23,12 @@ We are building a robust ecosystem centered on resource-based Agents (rAgents) w
 
 ### 1.2 Key components
 In this document, we focus on the structure and component compose the rAgents. In our framework, we have 2 types of rAgents:
-  1. Build-in rAgents integrated with various resources (RD, RX, RE, RC) is developed by our expert, it is easy to use and automated processing when users stake this resources to our systems.
-  2. Custem rAgents with custom resources is provider by users:
+  1. Built-in rAgents integrated with various resources (RD, RX, RE, RC) is developed by our expert, it is easy to use and provides automated processing when users stake these resources to our systems.
+  2. Custom rAgents with custom resources are provided by users:
       - Providers can clone our framework, develop the new methods, plugins to interaction with their resources, and supply resources via .env configuration. 
       - After thorough review, we merge their contribution.
 
-In this documents, we provide the guildline for:
+In this document, we provide the guideline for:
   1. Structure of base agents 
   2. Built-in resource agents (RX, RC, RD, RE) of our system. 
   3. Provider contribute agents to our system.
