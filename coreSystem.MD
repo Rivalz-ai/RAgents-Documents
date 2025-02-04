@@ -57,6 +57,7 @@ Providers can contribute new agent types by:
 ### Resource Configuration Example
 ```json
 {
+  "permissions": [
     "read",
     "write",
     "execute"
