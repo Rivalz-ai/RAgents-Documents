@@ -118,10 +118,10 @@ The rAgent framework is built upon an inheritance model that ensures modularity 
 - **🧠 ProviderAgent** – Inherits from BaseAgent and integrates Large Language Models (LLMs) to enable agents to process language-based logic, making them capable of natural language understanding and reasoning.
 
 - **🛠️ rAgent** – Inherits from ProviderAgent and expands functionalities by adding resource management, tool execution, and integration with external APIs, allowing interaction with specialized data sources or computational services.
-
 <div align="center">
-  <img src="image/structure-rAgent.png" width="600" alt="rAgent Framework Hierarchical Structure"/>
+  <img src="image/structure-rAgent.png" width="400" alt="rAgent Framework Hierarchical Structure"/>
 </div>
+
 
 #### Class Inheritance Overview:
 ```diagram
