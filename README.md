@@ -1,458 +1,269 @@
-
+<!-- 
 <div>
 <div align="center">
 <a href="#" target="_blank">
   <img src="svg/card.svg" width="1200" />
 </a>
+</div>  -->
+
+<div>
+<div align="center">
+<a href="#" target="_blank">
+  <img src="image/banner.png" width="1200" />
+</a>
 </div> 
+<h1 align="center" style="font-size: 3em;">🌍 rAgent Framework&nbsp;</h1>
 
-<h1 align="center" style="font-size: 3em;"> Multi-Agent Orchestrator&nbsp;</h1>
 
-<p align="center">Flexible and powerful framework for managing multiple AI agents and handling complex conversations.</p>
+
+<p align="center">The <strong> RAgent Framework </strong> is a specialized AI agent development platform that makes it easy to own, interact with, and share <strong> intelligent resources </strong>.</p>
 
 
 <p align="center">
-  <a href="https://github.com/awslabs/multi-agent-orchestrator"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repo-green.svg" /></a>
-  <a href="https://pypi.org/project/multi-agent-orchestrator/"><img alt="PyPI" src="https://img.shields.io/pypi/v/multi-agent-orchestrator.svg?style=flat-square"></a>
-  <a href="https://awslabs.github.io/multi-agent-orchestrator/"><img alt="Documentation" src="https://img.shields.io/badge/docs-book-blue.svg?style=flat-square"></a>
+  <a href="https://github.com/Rivalz-ai/Ragent-python/tree/dev"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repo-green.svg" /></a>
+  <!-- <a href="https://pypi.org/project/multi-agent-orchestrator/"><img alt="PyPI" src="https://img.shields.io/pypi/v/multi-agent-orchestrator.svg?style=flat-square"></a> -->
+  <a href="https://github.com/Rivalz-ai/RAgents-Documents/"><img alt="Documentation" src="https://img.shields.io/badge/docs-book-blue.svg?style=flat-square"></a>
 </p>
 
 <p align="center">
   <!-- GitHub Stats -->
-  <img src="https://img.shields.io/github/stars/awslabs/multi-agent-orchestrator?style=social" alt="GitHub stars">
-  <img src="https://img.shields.io/github/forks/awslabs/multi-agent-orchestrator?style=social" alt="GitHub forks">
-  <img src="https://img.shields.io/github/watchers/awslabs/multi-agent-orchestrator?style=social" alt="GitHub watchers">
+  <img src="https://img.shields.io/github/stars/Rivalz-ai/Ragent-python?style=social" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/Rivalz-ai/Ragent-python?style=social" alt="GitHub forks">
+  <img src="https://img.shields.io/github/watchers/Rivalz-ai/Ragent-python?style=social" alt="GitHub watchers">
 </p>
 
 <p align="center">
   <!-- Repository Info -->
-  <img src="https://img.shields.io/github/last-commit/awslabs/multi-agent-orchestrator" alt="Last Commit">
-  <img src="https://img.shields.io/github/issues/awslabs/multi-agent-orchestrator" alt="Issues">
-  <img src="https://img.shields.io/github/issues-pr/awslabs/multi-agent-orchestrator" alt="Pull Requests">
+  <img src="https://img.shields.io/github/last-commit/Rivalz-ai/Ragent-python" alt="Last Commit">
+  <img src="https://img.shields.io/github/issues/Rivalz-ai/Ragent-python" alt="Issues">
+  <img src="https://img.shields.io/github/issues-pr/Rivalz-ai/Ragent-python" alt="Pull Requests">
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <!-- Package Stats -->
-  <a href="https://pypi.org/project/multi-agent-orchestrator/"><img src="https://img.shields.io/pypi/dm/multi-agent-orchestrator?label=pypi%20downloads" alt="PyPI Monthly Downloads"></a>
-  
-</p>
+  <!-- <a href="https://pypi.org/project/multi-agent-orchestrator/"><img src="https://img.shields.io/pypi/dm/multi-agent-orchestrator?label=pypi%20downloads" alt="PyPI Monthly Downloads"></a> -->
+ <!--  </p> -->
+----
+## 📌 Overview of rAgent
 
-## 🔖 Features
-
-- 🧠 **Intelligent intent classification** — Dynamically route queries to the most suitable agent based on context and content.
-- 🌊 **Flexible agent responses** — Support for both streaming and non-streaming responses from different agents.
-- 📚 **Context management** — Maintain and utilize conversation context across multiple agents for coherent interactions.
-- 🔧 **Extensible architecture** — Easily integrate new agents or customize existing ones to fit your specific needs.
-- 🌐 **Universal deployment** — Run anywhere - from AWS Lambda to your local environment or any cloud platform.
-- 📦 **Pre-built agents and classifiers** — A variety of ready-to-use agents and multiple classifier implementations available.
-
-## What's the Multi-Agent Orchestrator ❓
-
-The Multi-Agent Orchestrator is a flexible framework for managing multiple AI agents and handling complex conversations. It intelligently routes queries and maintains context across interactions.
-
-The system offers pre-built components for quick deployment, while also allowing easy integration of custom agents and conversation messages storage solutions.
-
-This adaptability makes it suitable for a wide range of applications, from simple chatbots to sophisticated AI systems, accommodating diverse requirements and scaling efficiently.
-
-
-
-<h1 align="center" style="font-size: 3em;"> 🏗️ High-level architecture flow diagram</h1>
-
-
-<br /><br />
-
- <img src='image/Orchestration.jpg' />
-
-<br /><br />
-
-
-1. The process begins with user input, which is analyzed by a Classifier.
-2. The Classifier leverages both Agents' Characteristics and Agents' Conversation history to select the most appropriate agent for the task.
-3. Once an agent is selected, it processes the user input.
-4. The orchestrator then saves the conversation, updating the Agents' Conversation history, before delivering the response back to the user.
-
-
-
-<div>
-  <h2 style="font-size: 1.5em; margin-bottom: 20px;">
-   1. RAgent Development Framework
-  </h2>
-  <p style="font-size: 1.2em; max-width: 1200px; margin-bottom: 20px;">
-    We are building a robust ecosystem centered on resource-based Agents (rAgents) with advanced verifiability, complemented by powerful multi-agent orchestration. This enables both the seamless development of new rAgents and the efficient coordination of large-scale agent swarms in production environments.
-  </p>
-
-<p>
-
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-
-  <div style="flex: 1; padding: 20px; border: 2px solid #ddd; border-radius: 10px;; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);background: #1e293b;">
-    <h2 style="color: #fff;">🚀 Built-in RAgents</h2>
-    <p>We provide four core resource agent types:</p>
-    <ol>
-      <li><b>Data Resources (RD)</b>: For managing datasets, files, and streams</li>
-      <li><b>Social Resources (RX)</b>: For social media account interactions</li>
-      <li><b>Compute Resources (RC)</b>: For CPU, GPU, and RAM management</li>
-      <li><b>Execution Resources (RE)</b>: For Docker and runtime environments</li>
-    </ol>
-  </div>
-
-  <div style="flex: 1; padding: 20px; border: 2px solid #ddd; border-radius: 10px;box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); background: #1e293b;">
-    <h2 style="color: #fff;">🛠️ Custom RAgent Development</h2>
-    <p>Providers can contribute new agent types by:</p>
-    <ol>
-      <li>Cloning our framework</li>
-      <li>Implementing resource interactions</li>
-      <li>Configuring environment settings</li>
-      <li>Submitting for review and integration</li>
-    </ol>
-  </div>
-
+### 🧠 What is rAgent?
+RAgent (**Resource-Based Agent**) is an intelligent, decentralized agent designed to **manage, allocate, and share computational resources** within a multi-agent ecosystem. It transforms various digital assets—such as social media accounts, computing power, data, and execution environments—into functional agents.
+<div align="center">
+  <img src="image/rAgent-ex.png" width="400" alt="rAgent Example"/>
 </div>
 
 
+### 🎯 Why was RAgent created?
+RAgent was developed to:
+- ⚡ **Automate resource allocation** – Efficiently distribute and utilize resources without manual intervention.
+- 🔄 **Facilitate resource coordination** – Enable AI agents and systems to share, lend, or exchange computing resources seamlessly.
+- 🚀 **Optimize computational performance** – Prevent underutilization and maximize efficiency.
+- 🏗 **Handle high-demand computational tasks** – Empower AI agents to tackle complex workloads beyond a single agent’s capability.
+
+### 🌐 How does RAgent operate in a decentralized Swarm system?
+RAgent seamlessly integrates into Swarm-based AI ecosystems, enabling:
+- 🔁 **Intelligent resource sharing** – Dynamic allocation of CPU, memory, bandwidth, and storage.
+- 🤖 **Collaborative task execution** – Workload distribution across multiple agents.
+- 📊 **Dynamic resource management** – Agents can request additional resources from peers.
+- ⚖ **Optimized load balancing** – Advanced algorithms ensure even resource distribution.
+
+---
+
+## ✨ Key Features
+- 🏗 **Pre-Built Base Agent** – A standardized yet adaptable agent framework.
+- 🛠 **Built-In rAgents** – Ready-to-use Resource Agents for seamless Swarm integration.
+- 🔧 **Custom rAgent Flexibility** – Modify or create AI Agents tailored to specific needs.
+- 🧠 **Conversation Memory Storage** – Enables context-aware interactions.
+- 🔄 **Flexible Agent Responses** – Supports both **Streaming** and **Non-Streaming** responses.
+
+---
+
+## 🔑 Types of rAgent
+RAgent comes in two distinct types, offering different levels of customization:
+
+### 🏗 Built-In rAgents
+**Pre-configured AI agents** designed for specific computational tasks, ensuring **plug-and-play** integration.
+
+#### 📌 Available rAgents
+- **🕊 RX (Social Agent)** – Connects to Twitter (X) for decentralized social interactions.
+- **💻 RC (Compute Agent)** – Executes edge computing tasks.
+- **📊 RD (Data Agent)** – Manages and stores data.
+- **⚙️ RE (Execution Agent)** – Runs nodes, applications, and other software autonomously.
+
+### 🔨 Custom rAgents
+Custom rAgents allow users to extend the framework by integrating their **own resources, computation models, and execution logic**. Our framework provides:
+
+- **📦 Pre-packaged Components** – We've carefully encapsulated core functionalities into reusable modules
+- **🧩 Extensive Base Classes** – Well-defined abstract classes handle common agent behaviors and interactions
+- **⚡ Simplified Development** – Create new agents with minimal code by extending our base classes
+- **🔌 Plug-and-Play Integration** – Custom agents seamlessly connect with built-in framework services
+- **🛠️ Flexible Architecture** – Modify only the components you need while inheriting standard functionality
+
+This modular approach dramatically reduces development time, allowing you to focus on your agent's unique capabilities rather than rebuilding core infrastructure. Whether you're integrating proprietary resources or implementing specialized computation logic, the rAgent framework provides the foundation for rapid agent development.
+
+---
+
+## 🏛 Structure of rAgent
+
+The rAgent Framework follows a hierarchical structure that provides modular and extensible components for building and managing AI-powered resource agents. It is designed to facilitate interaction, resource management, and intelligent decision-making within Swarm networks. By adopting a modular design, rAgent enables seamless integration into multi-agent systems while allowing high levels of customization.
+
+This architecture has been meticulously designed with a hierarchical tree structure to support both built-in and custom Agent creation. Our components enable derived classes to inherit functionality from base classes, making agent development flexible yet standardized.
+
+### 🏗 Hierarchical Structure
+
+The rAgent framework is built upon an inheritance model that ensures modularity and extensibility:
+
+- **🔄 BaseAgent** – Defines the fundamental attributes and behaviors of an agent, serving as the core class for all agent types.
+
+- **🧠 ProviderAgent** – Inherits from BaseAgent and integrates Large Language Models (LLMs) to enable agents to process language-based logic, making them capable of natural language understanding and reasoning.
+
+- **🛠️ rAgent** – Inherits from ProviderAgent and expands functionalities by adding resource management, tool execution, and integration with external APIs, allowing interaction with specialized data sources or computational services.
+
+<div align="center">
+  <img src="image/structure-rAgent.png" width="600" alt="rAgent Framework Hierarchical Structure"/>
 </div>
 
-  
-</p>
-
-</div>
-
-<br />
-<div>
- <h1 style="font-size: 1.5em; margin-bottom: 20px;">
-   2. Multi-Agent Orchestration SDK
-  </h1>
-  <img src='image/SwarmSDK.png' />
- </div>
-<div>
-
-## 📌 Example SDK Usage
-
- ```javascript
-// Create a swarm of agents
-const swarm = new Swarm({
-  agents: [socialAgent, computeAgent, dataAgent],
-  orchestration: {
-    type: 'collaborative',
-    strategy: 'round-robin'
-  }
-});
-
-// Define interaction patterns
-swarm.defineInteraction({
-  between: ['socialAgent', 'dataAgent'],
-  protocol: 'request-response',
-  sharing: ['data', 'results']
-});
+#### Class Inheritance Overview:
+```diagram
+Agent (Base class)
+↓
+ProviderAgent (Abstract class for LLM providers)
+↓
+├── OpenAIAgent
+├── AnthropicAgent
+├── ... More Provider Agent
+  ↓
+  ├── rAgent (ProviderAgent)
+    ↓
+    └── RX Agent 
+    └── RD Agent
+    └── RE Agent
+    └── RC Agent
+    └── Custom rAgent
 ```
-<div>
- <h1 style="font-size: 1.5em; margin-bottom: 20px;">
-   3. ROME SDK - Swarm Orchestration Framework
-  </h1>
-</div>
+#### Characteristic of the structure
+  - **Modularity and Scalability**:
+    - The framework is designed to be modular, ensuring each agent can be extended or modified without affecting others.
+    - Scalability allows multiple agents to interact and operate concurrently within a system.
+  - **Extensibility**:
+    - Developers can create new agents that inherit from rAgent and expand their functionality.
+    - Supports resource management for efficient interaction with databases, APIs, and other systems.
 
- ## 📌 Core Features
 
-## 3.1 Agent Lifecycle Management
 
-### 3.1.1 Agent Creation and Initialization
-```javascript
-import { Agent, AgentConfig } from '@rome-sdk/agents';
-import { Swarm, SwarmConfig } from '@rome-sdk/swarm';
 
-const config: AgentConfig = {
-  id: 'agent-001',
-  capabilities: ['compute', 'storage'],
-  resources: {
-    maxMemory: '1GB',
-    maxCPU: 2
-  }
-};
+The rAgent framework follows an inheritance model where each agent type builds upon the capabilities of its parent. Below, we detail the specific attributes, methods, and functionality each agent type inherits and extends:
 
-const agent = new Agent(config);
-await agent.initialize();
+### 🔄 BaseAgent Class
+
+BaseAgent provides core functionalities and attributes common to all agents.
+
+**Core Attributes**  
+- `name`: Unique identifier for the agent.  
+- `description`: Brief overview of the agent's purpose.  
+- `save_chat`: Enables or disables memory storage.  
+- `callbacks`: Handles event-driven interactions realtime during execution.  
+- `share_global_memory`: Determines if the agent can access global memory across agent instances in collaborative mode.  
+- `character`: Defines the agent’s persona and behavioral style.  
+- `in_memory`: Stores temporary data for session-based interactions.
+
+**Key Methods:**
+- `initialize()`: Sets up the agent environment
+
+- `process_request(input_text, user_id, session_id, chat_history, additional_params)`: Abstract method that must be implemented by subclasses. It processes user input, maintains contextual history, and generates a response via the appropriate logic or model interaction.
+<!-- - `execute_action()`: Performs the agent's primary functions
+- `update_state()`: Manages the agent's internal state -->
+
+```python
+from abc import ABC, abstractmethod
+from typing import List, Dict, Any, Union, AsyncIterable
+
+class BaseAgent(ABC):
+  def __init__(self, options: AgentOptions):
+    self.name = options.name
+    self.description = options.description
+    self.save_chat = options.save_chat
+    self.callbacks = options.callbacks or AgentCallbacks()
+    self.share_global_memory = options.share_global_memory or False
+
+  @abstractmethod
+  async def process_request(
+    self,
+    input_text: str,
+    user_id: str,
+    session_id: str,
+    chat_history: List[ConversationMessage],
+    additional_params: Dict[str, Any] = None
+  ) -> Union[ConversationMessage, AsyncIterable[Any]]:
+    ...
+  @abstractmethod
+  async def initialize():
+    ...
 ```
+---
+### 🧠 ProviderAgent (extends BaseAgent)
+ProviderAgent extends BaseAgent by integrating LLMs for advanced language processing. This enables the agent to generate responses, perform complex reasoning, and utilize external knowledge sources.
 
-### 3.1.2 State Management and Persistence
-```javascript
-// ...existing state management code...
-```
+**Inherited from BaseAgent:**
+- All core attributes and methods
+- Basic request handling capabilities
 
-### 3.1.3 Graceful Shutdown and Recovery
-```javascript
-// ...existing graceful shutdown and recovery code...
-```
+**Added Attribute:**
+- `llm_provider`: Connection to specific language model services
+- `extra_tools`: List of additional tools that extend the agent’s functionality beyond LLM interaction.
+- `llm_params`: Custom parameters for connecting and configuring LLMs, making it adaptable to different models.
+- `inference_config`: Fine-tunes response generation settings such as temperature, max tokens, and top-p filtering.
+- `streaming`: Enables streaming responses, allowing the agent to return partial results in real-time. If enable streaming, we also need `callbacks`.
 
-### 3.1.4 Health Monitoring and Auto-healing
-```javascript
-// ...existing health monitoring and auto-healing code...
-```
 
-## 3.2 Swarm Orchestration
 
-### 3.2.1 Dynamic Swarm Formation
-```javascript
-const swarmConfig: SwarmConfig = {
-  name: 'processing-swarm',
-  minAgents: 3,
-  maxAgents: 10,
-  consensusStrategy: 'raft'
-};
+**Principal Methods:**
+- `generate_response()`: Creates AI-powered responses
+- `manage_context()`: Handles conversation history
+- `optimize_prompts()`: Enhances input for better LLM performance
 
-const swarm = new Swarm(swarmConfig);
-await swarm.addAgent(agent);
-```
+#### 🛠️ rAgent (extends ProviderAgent)
 
-### 3.2.2 Role-based Agent Organization
-```javascript
-// ...existing role-based agent organization code...
-```
+**Inherited from ProviderAgent:**
+- Language model integration
+- Context management
+- Response generation
 
-### 3.2.3 Task Distribution and Load Balancing
-```javascript
-const task = new Task({
-  id: 'task-001',
-  type: 'DATA_PROCESSING',
-  priority: 'HIGH',
-  timeout: '5m'
-});
+**Added Functionality:**
+- `resource_manager`: Handles allocation of computational resources
+- `tool_executor`: Interfaces with external tools and services
+- `permission_handler`: Manages access controls and security
 
-await swarm.distributeTask(task, {
-  strategy: 'round-robin',
-  retries: 3
-});
-```
+**Key Methods:**
+- `allocate_resources()`: Distributes computational resources
+- `execute_tools()`: Runs specialized tools for specific tasks
+- `coordinate_agents()`: Facilitates communication between multiple agents
 
-### 3.2.4 Consensus Mechanisms
-```javascript
-// ...existing consensus mechanisms code...
-```
+#### 📌 Specialized rAgents (extend rAgent)
 
-## 3.3 Communication Patterns
+Each specialized agent (RX, RC, RD, RE) inherits the complete functionality of rAgent while adding domain-specific features:
 
-### 3.3.1 P2P Direct Messaging
-```javascript
-// Subscribe to events
-agent.on('message', async (message) => {
-  console.log('Received:', message);
-});
+**RX (Social Agent):**
+- Social media API integrations
+- Content management tools
+- Engagement tracking metrics
 
-// Send message to another agent
-await agent.sendMessage('agent-002', {
-  type: 'TASK_ASSIGNMENT',
-  payload: { taskId: 'task-001' }
-});
-```
+**RC (Compute Agent):**
+- Distributed computing interfaces
+- Task scheduling algorithms
+- Performance monitoring systems
 
-### 3.3.2 Pub/Sub Event System
-```javascript
-// ...existing pub/sub event system code...
-```
+**RD (Data Agent):**
+- Database connectors
+- Data transformation utilities
+- Storage optimization tools
 
-### 3.3.3 Broadcast Communications
-```javascript
-// ...existing broadcast communications code...
-```
+**RE (Execution Agent):**
+- Runtime environments
+- Code execution sandboxes
+- Deployment automation utilities
 
-### 3.3.4 Message Queuing and Persistence
-```javascript
-// ...existing message queuing and persistence code...
-```
+This inheritance structure ensures that each agent type maintains core functionality while adding specialized capabilities, creating a flexible yet powerful framework for resource-based AI agents.
 
-## 3.4 Resource Management
 
-### 3.4.1 Compute Resource Sharing
-```javascript
-// Share resources
-await agent.shareResource({
-  type: 'COMPUTE',
-  amount: '500MB',
-  target: 'agent-003',
-  duration: '30m'
-});
 
-// Monitor usage
-agent.on('resource-usage', (metrics) => {
-  console.log('Current usage:', metrics);
-});
-```
-
-### 3.4.2 Storage Allocation
-```javascript
-// ...existing storage allocation code...
-```
-
-### 3.4.3 Memory Management
-```javascript
-// ...existing memory management code...
-```
-
-### 3.4.4 Resource Discovery
-```javascript
-// ...existing resource discovery code...
-```
-
-## 3.5 Security & Access Control
-
-### 3.5.1 Agent Authentication
-```javascript
-import { SecurityManager } from '@rome-sdk/core';
-
-const security = new SecurityManager({
-  encryption: 'AES-256',
-  tokenValidity: '24h'
-});
-
-const token = await security.generateToken(agent.id);
-```
-
-### 3.5.2 Capability-based Security
-```javascript
-// Grant capability
-await agent.grantCapability('storage-access', {
-  target: 'agent-002',
-  duration: '1h',
-  permissions: ['read', 'write']
-});
-
-// Use capability
-await agent.useCapability('storage-access', {
-  operation: 'write',
-  data: buffer
-});
-```
-
-### 3.5.3 Encryption for Data in Transit
-```javascript
-// ...existing encryption for data in transit code...
-```
-
-### 3.5.4 Access Token Management
-```javascript
-// ...existing access token management code...
-```
-
-# 📌 Getting Started
-
-## 4.1 Installation
-```bash
-npm install @rome-sdk/core @rome-sdk/agents @rome-sdk/swarm
-```
-
-## 4.2 Quick Start
-
-### 4.2.1 Create an Agent
-```javascript
-import { Agent, AgentConfig } from '@rome-sdk/agents';
-import { Swarm, SwarmConfig } from '@rome-sdk/swarm';
-
-const config: AgentConfig = {
-  id: 'agent-001',
-  capabilities: ['compute', 'storage'],
-  resources: {
-    maxMemory: '1GB',
-    maxCPU: 2
-  }
-};
-
-const agent = new Agent(config);
-await agent.initialize();
-```
-
-### 4.2.2 Form a Swarm
-```javascript
-const swarmConfig: SwarmConfig = {
-  name: 'processing-swarm',
-  minAgents: 3,
-  maxAgents: 10,
-  consensusStrategy: 'raft'
-};
-
-const swarm = new Swarm(swarmConfig);
-await swarm.addAgent(agent);
-```
-
-### 4.2.3 Implement Communication
-```javascript
-// Subscribe to events
-agent.on('message', async (message) => {
-  console.log('Received:', message);
-});
-
-// Send message to another agent
-await agent.sendMessage('agent-002', {
-  type: 'TASK_ASSIGNMENT',
-  payload: { taskId: 'task-001' }
-});
-```
-
-# 📌 Advanced Usage
-
-## 5.1 Custom Behaviors
-```javascript
-class CustomAgent extends Agent {
-  async onMessageReceived(message: Message) {
-    // Custom message handling
-  }
-
-  async onResourceRequest(request: ResourceRequest) {
-    // Custom resource handling
-  }
-}
-```
-
-## 5.2 Swarm Policies
-```javascript
-const policy = new SwarmPolicy({
-  scaling: {
-    minAgents: 5,
-    maxAgents: 20,
-    scalingFactor: 1.5
-  },
-  resourceLimits: {
-    maxMemoryPerAgent: '2GB',
-    maxCPUPerAgent: 4
-  },
-  security: {
-    requireEncryption: true,
-    tokenRefreshInterval: '6h'
-  }
-});
-
-await swarm.applyPolicy(policy);
-```
-<div>
- <h1 style="font-size: 1.5em; margin-bottom: 20px;">
-   4. Contribution Flows
-  </h1>
-</div>
-
-### 🛠 RAgent Contribution
-1. Clone framework repository  
-2. Implement new agent type  
-3. Configure resource access  
-4. Submit pull request with:  
-   - ✅ Agent implementation  
-   - ✅ Resource configuration  
-   - ✅ Documentation  
-   - ✅ Tests  
-
-### 📦 SDK Contribution
-1. Fork SDK repository  
-2. Add new orchestration patterns  
-3. Create example use cases  
-4. Submit merge request with:  
-   - ✅ Implementation  
-   - ✅ Documentation  
-   - ✅ Usage examples  
-   - ✅ Performance benchmarks  
-
-<div>
- <h1 style="font-size: 1.5em; margin-bottom: 20px;">
-   5. 📚 Documentation Links
-  </h1>
-</div>
-
-- 📖 [RAgent Development Guide](plan.MD)  
-- 🛠 [SDK Usage Guide](ROME-SDKClient.MD)  
-- 🔗 [Resource Integration Guide](rAgent-integration.MD)  
