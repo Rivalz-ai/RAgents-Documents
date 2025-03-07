@@ -160,12 +160,12 @@ BaseAgent provides core functionalities and attributes common to all agents.
 
 **Core Attributes**  
 - `name`: Unique identifier for the agent.  
-- `description`: Brief overview of the agent's purpose.  
-- `save_chat`: Enables or disables memory storage.  
-- `callbacks`: Handles event-driven interactions realtime during execution.  
+- `description`: Brief overview of the agent's purpose.  
+- `save_chat`: Enables or disables memory storage.  
+- `callbacks`: Handles event-driven interactions realtime during execution.  
 - `share_global_memory`: Determines if the agent can access global memory across agent instances in collaborative mode.  
-- `character`: Defines the agent’s persona and behavioral style.  
-- `in_memory`: Stores temporary data for session-based interactions.
+- `character`: Defines the agent’s persona and behavioral style.  
+- `in_memory`: Stores temporary data for session-based interactions.
 
 **Key Methods:**
 - `initialize()`: Sets up the agent environment
@@ -202,7 +202,7 @@ class BaseAgent(ABC):
 ```
 ---
 ### 🧠 ProviderAgent (extends BaseAgent)
-ProviderAgent extends BaseAgent by integrating LLMs for advanced language processing. This enables the agent to generate responses, perform complex reasoning, and utilize external knowledge sources.
+**ProviderAgent** extends **BaseAgent** by integrating LLMs for advanced language processing. This enables the agent to generate responses, perform complex reasoning, and utilize external knowledge sources by adding it into tools.
 
 **Inherited from BaseAgent:**
 - All core attributes and methods
@@ -216,31 +216,162 @@ ProviderAgent extends BaseAgent by integrating LLMs for advanced language proces
 - `streaming`: Enables streaming responses, allowing the agent to return partial results in real-time. If enable streaming, we also need `callbacks`.
 
 
+**Key Methods:**
+- `initialize_client()`: Initializes the LLM client based on provided parameters and authentication credentials.
+- `handle_single_response(request_options)`:
+Manages synchronous responses from external LLMs, ensuring deterministic output.
+-  `handle_streaming_response(request_options)`:
+Enables efficient handling of real-time, incremental outputs from streaming LLM responses.
+-  `_configure_tools(extra_tools)`:Registers and configures tools available to the agent
+- Others `interaction_method()`: Enable Agent can interact with internet, resources,...
 
-**Principal Methods:**
-- `generate_response()`: Creates AI-powered responses
-- `manage_context()`: Handles conversation history
-- `optimize_prompts()`: Enhances input for better LLM performance
+The bellow codes is the definition of ProviderAgent Class:
+```python
+class ProviderAgent(BaseAgent, ABC):
+  def __init__(self, options: ProviderAgentOptions):
+    super().__init__(options)
+    self.streaming = options.streaming or False
+    self.inference_config = options.inference_config or {}
+    self.extra_tools = options.extra_tools or []
+    self.llm_params = options.llm_params or {}
+    self.client = self.initialize_client()
+    self._configure_tools()
 
-#### 🛠️ rAgent (extends ProviderAgent)
+  def initialize_client(self):
+    if self.llm_params.get("provider") == "openai":
+      return OpenAI(**self.llm_params)
+    elif self.llm_params.get("provider") == "anthropic":
+      return AnthropicClient(**self.llm_params)
+    else:
+      raise ValueError("Unsupported LLM provider")
+
+  def is_streaming_enabled(self) -> bool:
+    return self.streaming
+
+  @abstractmethod
+  async def handle_single_response(self, request_options: Dict[str, Any]) -> Any:
+    pass
+
+  @abstractmethod
+  async def handle_streaming_response(self, request_options: Dict[str, Any]) -> Any:
+    pass
+
+  async def initialize(self):
+    pass
+  
+  def _configure_tools(self):
+    """
+    Setup system tool for Agent;
+    """
+    # Inital system tools
+    system_tool =  AgentTools(tools=[tool1, tool2,...])
+    # Adding
+    for tool in self.extra_tools:
+      # adding system_tool
+      self.extra_tools.extend(system_tools)
+      pass
+
+  @abstractmethod
+  async def process_request(
+    self,
+    input_text: str,
+    user_id: str,
+    session_id: str,
+    chat_history: List[ConversationMessage],
+    additional_params: Dict[str, Any] = None
+  ) -> Union[ConversationMessage, AsyncIterable[Any]]:
+    """
+    In this method, the request logic is processed, function calls are performed, and the result is returned for each Provider type.
+    """
+    pass
+```
+
+
+For the details setup of some built-in providers, please refer to:
+- [OpenAIAgent](r-Agent-system.MD)
+- [AnthropicAgent](r-Agent-system.MD)
+- [BedrockAgent](r-Agent-system.MD)
+- [LexBotAgent](r-Agent-system.MD)
+
+
+
+### 🛠️ rAgent (extends ProviderAgent)
+**rAgent** is a specialized class designed to manage and interact with external resources, such as databases, APIs, or computational services. This enhances the agent’s ability to operate autonomously while leveraging external data sources.
 
 **Inherited from ProviderAgent:**
 - Language model integration
-- Context management
 - Response generation
-
+- Tools handler intergration
 **Added Functionality:**
-- `resource_manager`: Handles allocation of computational resources
-- `tool_executor`: Interfaces with external tools and services
-- `permission_handler`: Manages access controls and security
+- `resource_id`: Unique identifier for the resource.
+- `resource_type`: Specifies the type of resource (e.g., database, compute node, social media).
+- `resource_auth`: Credentials or authentication details for accessing protected resources.
+- `resource_config`: Configuration settings specific to the resource.
+- `resource_tools`: Tools designed specifically for direct interaction with the resource.
+- `extra_tools`: Additional external tools that can be used in conjunction with the resource tools.
 
 **Key Methods:**
-- `allocate_resources()`: Distributes computational resources
-- `execute_tools()`: Runs specialized tools for specific tasks
-- `coordinate_agents()`: Facilitates communication between multiple agents
+- `connect_resource()`: Establishes secure, persistent connections to external resources such as databases, APIs, or cloud services.
+- `validate_resource_access()`: Ensures that authentication credentials are valid and sufficient for accessing the designated resources.
+- `refresh_authentication()`:Periodically refreshes authentication tokens or credentials to maintain uninterrupted access to protected resources.
+- `_configure_tools(tools)`: Registers and configures resource tools and extra tools .
+
+The below codes is the prototype of rAgent:
+```python
+class rAgent(ProviderAgent):
+    def __init__(self, options: rAgentOptions):
+        super().__init__(options)
+        self.resource_id = options.resource_id
+        self.resource_type = options.resource_type
+        self.resource_auth = options.resource_auth or {}
+        self.resource_config = options.resource_config or {}
+        self.resource_tools = AgentTools(tools=[])
+        self._configure_tools(options.extra_tools)
+
+    async def connect_resource(self) -> bool:
+        """Establishes a secure connection with the external resource."""
+        return True
+
+    async def validate_resource_access(self) -> bool:
+        """ Ensures that authentication credentials are valid and sufficient for accessing the designated resources."""
+        return True   
+    async def refresh_authentication(self) -> bool:
+        """ refresh resource authen."""
+        return True   
+        
+    def _configure_tools(self, extra_tools: Optional[Union[AgentTools, list[AgentTool]]]):
+        interact_func = AgentTool(
+            name="interact_with_resource",
+            description="Executes predefined operations with the external resource.",
+            properties={"param": {"type": "string", "description": "Operation-specific parameters."}},
+            func=self.resource_interaction_function
+        )
+        self.resource_tools.tools.append(interact_func)
+        if extra_tools:
+            self.resource_tools.tools.extend(extra_tools)
+
+    async def handle_single_response(self, request_options: Dict[str, Any]) -> Any:
+      """Processes a single response from the LLM."""
+      pass
+
+    async def handle_streaming_response(self, request_options: Dict[str, Any]) -> Any:
+      """Handles streaming responses in real-time."""
+      pass
+
+    async def process_request(
+      self,
+      input_text: str,
+      user_id: str,
+      session_id: str,
+      chat_history: List[ConversationMessage],
+      additional_params: Dict[str, Any] = None
+    ) -> Union[ConversationMessage, AsyncIterable[Any]]:
+      """Coordinates the request flow and returns final output."""
+      pass
+```
+
 
 #### 📌 Specialized rAgents (extend rAgent)
-
 Each specialized agent (RX, RC, RD, RE) inherits the complete functionality of rAgent while adding domain-specific features:
 
 **RX (Social Agent):**
@@ -263,7 +394,100 @@ Each specialized agent (RX, RC, RD, RE) inherits the complete functionality of r
 - Code execution sandboxes
 - Deployment automation utilities
 
-This inheritance structure ensures that each agent type maintains core functionality while adding specialized capabilities, creating a flexible yet powerful framework for resource-based AI agents.
+For detail structure and implement of built-in rAgent, please refer to:
+- [RX Agent](./rAgent-system.MD)
+- [RC Agent](r-Agent-system.MD)
+- [RD Agent](r-Agent-system.MD)
+- [RE Agent](r-Agent-system.MD)
 
+### ⚒️ Creating Custom Agents
+Developers can extend the framework by implementing custom rAgents tailored to their specific needs.
 
+#### 🚀 Steps to Customize an rAgent
+1. 🏗️ **Inherit** from rAgent to define a new resource agent.  
+2. 🌐 **Specify** unique attributes related to the custom resource.  
+3. 🔄 **Implement** necessary methods, such as connect_resource and process_request.  
+4. 🏷️ **Register** the new agent within the Swarm ecosystem.
+
+---
+
+### 💾 Example: Creating a Custom Database Agent
+```python
+from typing import Dict, Any, List
+from dataclasses import dataclass
+from multi_agent_orchestrator.agents import rAgent, rAgentOptions
+from multi_agent_orchestrator.types import ConversationMessage
+from multi_agent_orchestrator.tools import AgentTool
+
+@dataclass
+class DatabaseAgentOptions(rAgentOptions):
+  database_url: str
+  credentials: Dict[str, Any]
+
+class DatabaseAgent(rAgent):
+    def __init__(self, options: DatabaseAgentOptions):
+      super().__init__(options)
+      self.database_url = options.database_url
+      self.credentials = options.credentials
+      self.config_system_prompt()
+
+      query_tool = AgentTool(
+        name="run_database_query",
+        description="Executes a query on the connected database.",
+        properties={
+          "query": {
+            "type": "string",
+            "description": "SQL query string"
+          }
+        },
+        func=self.query_database
+      )
+      self.resource_tools.tools.append(query_tool)
+      self.tools = self.resource_tools.tools
+
+    def config_system_prompt(self):
+      """Adjusts the agent's default system prompt or character."""
+      self.character = f"{self.character}\nEnsure proper database querying when required."
+
+    async def connect_resource(self) -> bool:
+      """Establish a connection to the database."""
+      print(f"Connecting to database at {self.database_url}")
+      return True
+
+    async def validate_resource_access(self) -> bool:
+      """Ensures that authentication credentials are valid and sufficient for accessing the designated resources."""
+      return True
+
+    async def refresh_authentication(self) -> bool:
+      """refresh resource authen after a period."""
+      return True
+
+    async def query_database(self, query: str) -> List[Dict[str, Any]]:
+      """Executes a database query and returns results."""
+      print(f"Executing query: {query}")
+      return [{"result": "Sample Data"}]
+
+    async def process_request(
+      self, input_text: str, user_id: str, session_id: str,
+      chat_history: List[ConversationMessage], additional_params: Dict[str, Any] = None
+    ) -> ConversationMessage:
+      """Process user requests by executing database queries."""
+    ...
+```
+
+### 🔑 Registering a Custom Agent
+Once the custom agent is implemented, it needs to be registered in the system to be recognized within the Swarm framework, or a standardlone Agent in systems:
+
+```python
+# Example registration of DatabaseAgent
+db_agent_options = DatabaseAgentOptions(
+  database_url="https://mydatabase.com",
+  credentials={"user": "admin", "password": "securepass"},
+  ... # other setting
+)
+db_agent = DatabaseAgent(db_agent_options)
+register_agent(db_agent)
+```
+
+By following these examples, developers can quickly extend the rAgent framework to create specialized agents that interact with different resources, making the framework highly adaptable for diverse AI-driven applications.
 
