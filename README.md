@@ -119,7 +119,7 @@ The rAgent framework is built upon an inheritance model that ensures modularity 
 
 - **🛠️ rAgent** – Inherits from ProviderAgent and expands functionalities by adding resource management, tool execution, and integration with external APIs, allowing interaction with specialized data sources or computational services.
 <div align="center">
-  <img src="image/structure-rAgent.png" width="400" alt="rAgent Framework Hierarchical Structure"/>
+  <img src="image/ragent-structure.png" width="400" alt="rAgent Framework Hierarchical Structure"/>
 </div>
 
 
