@@ -58,12 +58,12 @@ RAgent was developed to:
 - ⚡ **Automate resource allocation** – Efficiently distribute and utilize resources without manual intervention.
 - 🔄 **Facilitate resource coordination** – Enable AI agents and systems to share, lend, or exchange computing resources seamlessly.
 - 🚀 **Optimize computational performance** – Prevent underutilization and maximize efficiency.
-- 🏗 **Handle high-demand computational tasks** – Empower AI agents to tackle complex workloads beyond a single agent’s capability.
+- 🏗 **Handle high-demand computational jobs** – Empower AI agents to tackle complex workloads beyond a single agent’s capability.
 
 ### 🌐 How does RAgent operate in a decentralized Swarm system?
 RAgent seamlessly integrates into Swarm-based AI ecosystems, enabling:
 - 🔁 **Intelligent resource sharing** – Dynamic allocation of CPU, memory, bandwidth, and storage.
-- 🤖 **Collaborative task execution** – Workload distribution across multiple agents.
+- 🤖 **Collaborative job execution** – Workload distribution across multiple agents.
 - 📊 **Dynamic resource management** – Agents can request additional resources from peers.
 - ⚖ **Optimized load balancing** – Advanced algorithms ensure even resource distribution.
 
@@ -82,11 +82,11 @@ RAgent seamlessly integrates into Swarm-based AI ecosystems, enabling:
 RAgent comes in two distinct types, offering different levels of customization:
 
 ### 🏗 Built-In rAgents
-**Pre-configured AI agents** designed for specific computational tasks, ensuring **plug-and-play** integration.
+**Pre-configured AI agents** designed for specific computational jobs, ensuring **plug-and-play** integration.
 
 #### 📌 Available rAgents
 - **🕊 RX (Social Agent)** – Connects to Twitter (X) for decentralized social interactions.
-- **💻 RC (Compute Agent)** – Executes edge computing tasks.
+- **💻 RC (Compute Agent)** – Executes edge computing jobs.
 - **📊 RD (Data Agent)** – Manages and stores data.
 - **⚙️ RE (Execution Agent)** – Runs nodes, applications, and other software autonomously.
 
@@ -371,25 +371,24 @@ class rAgent(ProviderAgent):
 ```
 
 
-#### 📌 Specialized rAgents (extend rAgent)
-Each specialized agent (RX, RC, RD, RE) inherits the complete functionality of rAgent while adding domain-specific features:
+#### 📌Ragents built by Rivalz
 
-**RX (Social Agent):**
+**RX Agent (Social Agent):**
 - Social media API integrations
 - Content management tools
 - Engagement tracking metrics
 
-**RC (Compute Agent):**
+**RC Agent (Compute Agent):**
 - Distributed computing interfaces
-- Task scheduling algorithms
+- Job scheduling algorithms
 - Performance monitoring systems
 
-**RD (Data Agent):**
+**RD Agent (Data Agent):**
 - Database connectors
 - Data transformation utilities
 - Storage optimization tools
 
-**RE (Execution Agent):**
+**RE Agent (Execution Agent):**
 - Runtime environments
 - Code execution sandboxes
 - Deployment automation utilities
@@ -400,10 +399,10 @@ For detail structure and implement of built-in rAgent, please refer to:
 - [RD Agent](r-Agent-system.MD)
 - [RE Agent](r-Agent-system.MD)
 
-### ⚒️ Creating Custom Agents
+### ⚒️ Build A Custom rAgent
 Developers can extend the framework by implementing custom rAgents tailored to their specific needs.
 
-#### 🚀 Steps to Customize an rAgent
+#### 🚀 How to build your own Agent, step by step
 1. 🏗️ **Inherit** from rAgent to define a new resource agent.  
 2. 🌐 **Specify** unique attributes related to the custom resource.  
 3. 🔄 **Implement** necessary methods, such as connect_resource and process_request.  
@@ -489,5 +488,7 @@ db_agent = DatabaseAgent(db_agent_options)
 register_agent(db_agent)
 ```
 
-By following these examples, developers can quickly extend the rAgent framework to create specialized agents that interact with different resources, making the framework highly adaptable for diverse AI-driven applications.
+By following these examples, developers can quickly extend the rAgent framework to create their own agents that interact with different resources, making the framework highly adaptable for diverse AI-driven applications.
 
+## ⚠️ Disclaimer:
+The rAgent Framework is currently under active development. Features, APIs, and documentation may change significantly as we continue to build and refine the system. We appreciate your patience and welcome feedbacks.  
