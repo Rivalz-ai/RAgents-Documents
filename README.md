@@ -395,9 +395,9 @@ class rAgent(ProviderAgent):
 
 For detail structure and implement of built-in rAgent, please refer to:
 - [RX Agent](./rAgent-system.MD)
-- [RC Agent](r-Agent-system.MD)
-- [RD Agent](r-Agent-system.MD)
-- [RE Agent](r-Agent-system.MD)
+- [RC Agent](./rAgent-system.MD)
+- [RD Agent](./rAgent-system.MD)
+- [RE Agent](./rAgent-system.MD)
 
 ### ⚒️ Build A Custom rAgent
 Developers can extend the framework by implementing custom rAgents tailored to their specific needs.
@@ -474,7 +474,7 @@ class DatabaseAgent(rAgent):
     ...
 ```
 
-### 🔑 Registering a Custom Agent
+### 🔑 Using a Custom Agent
 Once the custom agent is implemented, it needs to be registered in the system to be recognized within the Swarm framework, or a standardlone Agent in systems:
 
 ```python
@@ -485,10 +485,141 @@ db_agent_options = DatabaseAgentOptions(
   ... # other setting
 )
 db_agent = DatabaseAgent(db_agent_options)
-register_agent(db_agent)
+...
+# code for you to call db_agent answer 
 ```
 
 By following these examples, developers can quickly extend the rAgent framework to create their own agents that interact with different resources, making the framework highly adaptable for diverse AI-driven applications.
+## 🧠 Conversation Memory Storage
+
+Effective memory management is crucial for the rAgent Framework, as agents must maintain context-aware interactions across multiple conversations. The framework employs a hybrid memory storage approach, combining global centralized memory with local agent-specific memory. This design ensures optimal scalability, seamless multi-agent collaboration, and efficient memory retrieval.
+
+### 🔄 Hybrid Memory Architecture
+The memory system in rAgent consists of two key components:
+- **🌐 Global Centralized Memory** – (Centralized Storage):
+  - Stores conversation histories across all agents in a structured manner.
+  - Maintains consistency across different user sessions and Swarm AI networks.
+  - Provides a shared knowledge base, enabling long-term contextual awareness.
+
+- **🔒 Local Agent Memory** (In-Memory Storage) Agent-specific context and conversation history:
+  - Each agent fetches relevant conversation history from Global Memory upon initialization.
+  - Local agent memory caches recent interactions for fast real-time processing.
+  - Updates occur both in-memory and globally, ensuring synchronization between agents.
+
+<div align="center">
+  <img src="image/memory.png" width="800" alt="rAgent Framework Memory"/>
+</div>
+
+#### Hybrid Memory Advantages
+This hybrid approach offers significant benefits:
+- 🏃 **Local In-Memory Storage** – Quick response generation.
+- 🌐 **Centralized Knowledge Base** – Maintains shared context across all agents.
+- ⚡ **Fast Local Processing** – In-memory caching enables quick response generation across sessions.
+- 🔄 **Seamless Synchronization** – Context retention across multiple sessions.
+- 📈 **Horizontal Scalability** – Supports numerous agents operating in parallel.
+- 🧠 **Distributed Intelligence** – Agents contribute to and draw from collective knowledge.
+- 🏢 **Enterprise-Grade Architecture** – Leverages central indexing with distributed caching patterns.
+
+## Example & Quick Start 
+This section provides step-by-step instructions to quickly run rAgent. Whether in a simple console-based interaction or a web-based UI using Chainlit, these examples will help you deploy and test your agent effortlessly.
+
+### Setting Up Your Environment
+Before running **rAgent**, it’s highly recommended to set up a virtual environment to isolate dependencies.
+
+**Step 1: Create and Activate a Virtual Environment**
+Run the following commands in your terminal
+```console
+# Create a virtual environment
+python -m venv venv
+
+# Activate the virtual environment (MacOS/Linux)
+source venv/bin/activate
+# Activate the virtual environment (Windows)
+venv\Scripts\activate
+```
+**Step 2: Install Dependencies**
+
+Direct to folder cookbook, then install requirement
+```console
+pip install -r requirement.txt
+```
+Now you’re ready to run the agent!
+
+### Run RX agent with chainlit example
+Create a Python script (run_rx_chainlit.py) with the following code:
+```python
+import uuid
+import chainlit as cl
+import os
+from dotenv import load_dotenv
+
+# Import RXAgent
+from r_agent.rx_agent import RXAgent, RXAgentOptions
+from multi_agent_orchestrator.types import ConversationMessage
+
+# Load environment variables
+load_dotenv()
+
+# Create RXAgent
+def create_X_agent():
+    options = RXAgentOptions(
+        name="X Agent",
+        description="Handles Twitter/X interactions such as posting tweets.",
+        api_key=os.getenv("API_KEY"),
+        model="gpt-4o",
+        base_url="https://api.openai.com",
+        xaccesstoken=os.getenv("TWITTER_ACCESS_TOKEN"),
+        inference_config={
+            "maxTokens": 500,
+            "temperature": 0.5,
+            "topP": 0.8,
+            "stopSequences": []
+        },
+        tool_config={
+            "tool": "Xtools",
+            "toolMaxRecursions": 5
+        }
+    )
+    return RXAgent(options)
+
+agent = create_X_agent()
+
+@cl.on_chat_start
+async def start():
+    cl.user_session.set("user_id", str(uuid.uuid4()))
+    cl.user_session.set("session_id", str(uuid.uuid4()))
+
+@cl.on_message
+async def handle_message(message: cl.Message):
+    user_id = cl.user_session.get("user_id")
+    session_id = cl.user_session.get("session_id")
+
+    msg = cl.Message(content="")
+    await msg.send()
+    cl.user_session.set("current_msg", msg)
+
+    response = await agent.process_request(
+        input_text=message.content,
+        user_id=user_id,
+        session_id=session_id,
+        chat_history=[]
+    )
+
+    if isinstance(response, ConversationMessage):
+        await msg.stream_token(response.content[0]["text"])
+
+    await msg.update()
+
+# Run Chainlit server
+if __name__ == "__main__":
+    cl.run()
+```
+***Run the Chainlit Server***
+```console
+
+chainlit run run_chainlit.py
+```
+A web interface will open, allowing you to chat with RXAgent in real-time.
 
 ## ⚠️ Disclaimer:
 The rAgent Framework is currently under active development. Features, APIs, and documentation may change significantly as we continue to build and refine the system. We appreciate your patience and welcome feedbacks.  
