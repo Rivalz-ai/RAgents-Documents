@@ -56,7 +56,7 @@ conda activate ragent
 ```Console
 git clone https://github.com/Rivalz-ai/RAgent-py.git
 
-cd Ragent-python
+cd Ragent-py
 ```
 **Step 3: Install Dependencies**
 
