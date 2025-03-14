@@ -92,21 +92,21 @@ Manage social media interactions, content posting, sentiment analysis, and engag
 ```
 
 #### **Actions:**
-```typescript
-const postContentAction: Action = {
-  name: "postContent",
-  description: "Post content to social platforms",
-  examples: [{ platform: "twitter", content: "Hello World!" }],
-  handler: async (runtime, message, state) => {
-    const { platform, content } = message;
-    return await runtime.apiCall({
-      method: "POST", 
-      url: runtime.endpoints.post,
-      data: { platform, content }
-    });
-  }
-};
+```python
+def post_content_action(runtime, message, state):
+    platform = message['platform']
+    content = message['content']
+    return runtime.api_call(
+        method="POST",
+        url=runtime.endpoints['post'],
+        data={'platform': platform, 'content': content}
+    )
 ```
+
+### Compute Resources Agent (RC)
+
+#### **Purpose:**
+Manage and optimize computational resources including CPU, GPU, and RAM allocation.
 
 ### Compute Resources Agent (RC)
 
@@ -394,39 +394,3 @@ RESOURCE_TIMEOUT=30000
 }
 ```
 
-### 3.3 Contribution Process
-
-1. Prepare submission:
-   - Test your implementation
-   - Document features and APIs 
-   - Update README
-
-2. Create merge request:
-```bash
-git checkout -b feature/new-resource
-git add .
-git commit -m "feat: add new resource agent"
-git push origin feature/new-resource
-```
-
-3. Required documentation:
-   - Resource configuration guide
-   - API documentation
-   - Test coverage report
-   - Security considerations
-
-4. Review process:
-   - Code review
-   - Resource validation
-   - Security audit
-   - Performance testing
-
-## 4. Development Roadmap
-
-See [Development Plan](plan.MD) for detailed roadmap.
-
-Current priorities:
-- Resource optimization
-- Security enhancements
-- Platform integrations
-- Orchestration features
