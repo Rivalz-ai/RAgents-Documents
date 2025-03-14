@@ -31,7 +31,7 @@ venv\Scripts\activate
 ```
 **Step 2: Clone the repository**
 ```Console
-git clone https://github.com/Rivalz-ai/Ragent-python.git
+git clone https://github.com/Rivalz-ai/RAgent-py.git
 
 cd Ragent-python
 ```
@@ -54,7 +54,7 @@ conda activate ragent
 ```
 **Step 2: Clone the repository**
 ```Console
-git clone https://github.com/Rivalz-ai/Ragent-python.git
+git clone https://github.com/Rivalz-ai/RAgent-py.git
 
 cd Ragent-python
 ```
@@ -73,7 +73,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 **Step 2: Clone the repository**
 ```Console
-git clone https://github.com/Rivalz-ai/Ragent-python.git
+git clone https://github.com/Rivalz-ai/RAgent-py.git
 
 cd Ragent-python
 ```

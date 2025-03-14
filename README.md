@@ -47,7 +47,7 @@
 ## Quick Start
 You can easily experiment and run our project by cloning the public repository and following the instructions to run rAgent with Chainlit or directly in the terminal. For detailed instructions, refer to the [link](QuickStart.MD).
 
-Public rAgent repository: https://github.com/Rivalz-ai/Ragent-python
+Public rAgent repository: https://github.com/Rivalz-ai/RAgent-py.git
 
 
 ## 📌 Overview of rAgent
